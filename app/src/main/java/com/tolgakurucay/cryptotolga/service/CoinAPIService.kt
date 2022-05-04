@@ -1,6 +1,8 @@
 package com.tolgakurucay.cryptotolga.service
 
+import android.text.method.SingleLineTransformationMethod
 import com.tolgakurucay.cryptotolga.model.Coin
+import io.reactivex.Observer
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -11,7 +13,7 @@ class CoinAPIService {
 
 
 
-    private val BASE_URL="https://api.coingecko.com/"
+    private val BASE_URL="https://api.nomics.com/v1/"
     private val api=Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
@@ -19,8 +21,18 @@ class CoinAPIService {
         .build()
         .create(CoinApi::class.java)
 
-    fun getData() : Single<List<Coin>>{
-        return api.getAll()
+      fun getData(apiKey:String) : Single<List<Coin>>{
+        return api.getAll(apiKey)
+    }
+
+      fun getSingleData(key : String, ids:String, currency:String ) : Single<List<Coin>>{
+
+        return api.getCrypto(key,ids,currency)
+    }
+
+
+    fun getDataFilterByCurrency(key:String,currency:String) : Single<List<Coin>>{
+        return api.getCryptoFilterByCurrency(key,currency)
     }
 
 

@@ -14,7 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
 
-
+             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -23,8 +23,10 @@
                 android:id="@+id/coinList"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNav"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -32,26 +34,41 @@
 
             <ProgressBar
                 android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyle"
+                style="@style/Widget.AppCompat.ProgressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/coinList"
-                app:layout_constraintTop_toTopOf="@+id/coinList" />
+
+
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayout">
+
+            </ProgressBar>
 
             <TextView
                 android:id="@+id/coinError"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Error!"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="40dp"
+                android:layout_height="12dp"
+                android:text="@string/error"
+                app:layout_constraintBottom_toBottomOf="@+id/coinList"
                 app:layout_constraintEnd_toEndOf="@+id/coinList"
                 app:layout_constraintStart_toStartOf="@+id/coinList"
-                app:layout_constraintTop_toTopOf="@+id/coinList">
+                app:layout_constraintTop_toTopOf="@+id/coinList" />
 
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNav"
+                android:layout_width="match_parent"
+                app:menu="@menu/feed_menu"
+                app:itemTextColor="@color/white"
+                app:itemIconTint="@color/white"
+                android:background="@color/gold"
+                android:layout_height="wrap_content"
 
-            </TextView>
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+
+                app:layout_constraintEnd_toEndOf="@id/constraintLayout"
+                app:layout_constraintStart_toStartOf="@id/constraintLayout" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -60,6 +77,7 @@
 
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 
 

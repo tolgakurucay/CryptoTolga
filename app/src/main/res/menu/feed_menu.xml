@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    
+
+    >
+    <group>
+
+        <item android:title="Dolar"
+            android:id="@+id/dollar"
+            android:icon="@drawable/dollar_asset"
+            app:showAsAction="ifRoom"
+
+            />
+
+        <item
+            android:title="Türk Lirası"
+            android:id="@+id/turkish_lira"
+            android:icon="@drawable/icons8_turkish_lira_64px"
+            app:showAsAction="ifRoom"
+
+            />
+        <item
+            android:title="Euro"
+            android:id="@+id/euro"
+            android:icon="@drawable/euro_asset"
+            app:showAsAction="ifRoom"
+
+            >
+
+
+        </item>
+
+
+    </group>
+
+
+
+</menu>
