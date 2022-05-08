@@ -1,7 +1,11 @@
 package com.tolgakurucay.cryptotolga.viewmodel
 
 import android.app.Application
+import android.view.LayoutInflater
 import androidx.lifecycle.MutableLiveData
+import android.view.View
+
+import com.tolgakurucay.cryptotolga.databinding.FragmentCoinBinding
 
 import com.tolgakurucay.cryptotolga.model.Coin
 import com.tolgakurucay.cryptotolga.service.CoinAPIService
@@ -20,16 +24,20 @@ class CoinFragmentModel(application:Application) : BaseViewModel(application) {
 
      var coin = MutableLiveData<List<Coin>>()
     var loading=MutableLiveData<Boolean>()
+
     private val coinApiService=CoinAPIService()
    private val disposable=CompositeDisposable()
 
 
 
 
-    fun getSingleDataFromAPI(id:String,currency:String){
+
+    fun getSingleDataFromAPI(id:String,currency:String,layoutInflater: LayoutInflater){
 
 
         loading.value=true
+
+
 
            disposable.add(
 
@@ -48,11 +56,13 @@ class CoinFragmentModel(application:Application) : BaseViewModel(application) {
 
 
 
+
                         }
 
                         override fun onSuccess(t: List<Coin>) {
                             coin.value=t
                             loading.value=false
+
                         }
                     })
 
@@ -68,6 +78,8 @@ class CoinFragmentModel(application:Application) : BaseViewModel(application) {
         super.onCleared()
         disposable.clear()
     }
+
+
 
 
 

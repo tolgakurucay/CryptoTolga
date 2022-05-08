@@ -1,6 +1,7 @@
 package com.tolgakurucay.cryptotolga.viewmodel
 
 import android.app.Application
+import android.os.CountDownTimer
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,6 +24,7 @@ class FeedFragmentModel(application: Application) : BaseViewModel(application) {
     val coins = MutableLiveData<List<Coin>>()
     val error = MutableLiveData<Boolean>()
     val progressBar = MutableLiveData<Boolean>()
+    val skipIntro=MutableLiveData<Boolean>()
 
 
     fun getDataFromApi() {
@@ -39,6 +41,7 @@ class FeedFragmentModel(application: Application) : BaseViewModel(application) {
                        override fun onSuccess(t: List<Coin>) {
 
                            coins.value = t
+
                            progressBar.value = false
 
 
@@ -70,6 +73,7 @@ class FeedFragmentModel(application: Application) : BaseViewModel(application) {
                 .subscribeWith(object : DisposableSingleObserver<List<Coin>>(){
                     override fun onSuccess(t: List<Coin>) {
                        coins.value=t
+                        println(t.size)
                         progressBar.value=false
                     }
 
@@ -98,6 +102,22 @@ class FeedFragmentModel(application: Application) : BaseViewModel(application) {
     override fun onCleared() {
 
         disposable.clear()
+    }
+
+    fun countDownTimer(second:Int){
+
+        object : CountDownTimer(second.toLong()*1000,1000){
+            override fun onTick(p0: Long) {
+                //nothing
+
+            }
+
+            override fun onFinish() {
+                skipIntro.value=true
+            }
+
+        }
+
     }
 
 

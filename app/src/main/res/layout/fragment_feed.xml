@@ -3,7 +3,10 @@
 
 <layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools">
+
+
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -12,11 +15,26 @@
         android:layout_height="match_parent"
         tools:context=".view.FeedFragment">
 
+
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
 
              android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <View
+                android:layout_width="match_parent"
+                android:id="@+id/viewIntro"
+                android:background="@drawable/wait"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+                android:layout_height="match_parent">
+
+            </View>
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -26,9 +44,10 @@
                 android:background="#FFFFFF"
                 app:layout_constraintBottom_toTopOf="@+id/bottomNav"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -68,7 +87,9 @@
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
 
                 app:layout_constraintEnd_toEndOf="@id/constraintLayout"
-                app:layout_constraintStart_toStartOf="@id/constraintLayout" />
+                app:layout_constraintStart_toStartOf="@id/constraintLayout" >
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

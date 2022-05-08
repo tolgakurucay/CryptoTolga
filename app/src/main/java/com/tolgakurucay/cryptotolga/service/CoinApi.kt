@@ -13,6 +13,7 @@ interface CoinApi {
 
     //EXTENSION URL
     //https://api.nomics.com/v1/currencies/ticker?key=your-key-here&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&platform-currency=ETH&per-page=100&page=1
+    //https://api.nomics.com/v1/currencies/ticker?key=2f10fb4972dc05c2ccc090f70b02bf49719edfba&currency=TRY
     //2f10fb4972dc05c2ccc090f70b02bf49719edfba
 
     @GET("currencies/ticker")
@@ -36,7 +37,7 @@ interface CoinApi {
       @GET("currencies/ticker")
       fun getCryptoFilterByCurrency(
           @Query("key") key : String,
-          @Query("convert") currency : String,
+          @Query("currency") currency : String,
       ) : Single<List<Coin>>
 
 

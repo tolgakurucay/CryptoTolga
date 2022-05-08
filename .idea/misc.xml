@@ -16,11 +16,12 @@
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/activity_login.xml" value="0.31657608695652173" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/fragment_coin.xml" value="0.25" />
-        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/fragment_feed.xml" value="0.22" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/fragment_feed.xml" value="0.1" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/fragment_item_list.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/recycler_view_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/menu/feed_menu.xml" value="0.1" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/menu/feed_menue.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1825" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3105" />
       </map>
     </option>
@@ -30,5 +31,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

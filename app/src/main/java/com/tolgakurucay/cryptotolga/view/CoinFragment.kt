@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.viewbinding.ViewBinding
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.databinding.FragmentCoinBinding
 import com.tolgakurucay.cryptotolga.viewmodel.CoinFragmentModel
@@ -22,6 +23,7 @@ class CoinFragment : Fragment() {
     private lateinit var viewModel:CoinFragmentModel
     private var id : String=""
     private lateinit var dataBinding:FragmentCoinBinding
+
       var currency:String="TRY"
 
 
@@ -38,6 +40,8 @@ class CoinFragment : Fragment() {
 
        dataBinding =DataBindingUtil.inflate(inflater,R.layout.fragment_coin,container,false)
 
+
+
         return dataBinding.root
     }
 
@@ -52,7 +56,8 @@ class CoinFragment : Fragment() {
 
         }
         viewModel=ViewModelProviders.of(this@CoinFragment).get(CoinFragmentModel::class.java)
-        viewModel.getSingleDataFromAPI(id,currency)
+        viewModel.getSingleDataFromAPI(id,currency,layoutInflater)
+
 
 
 
@@ -77,10 +82,19 @@ class CoinFragment : Fragment() {
             it?.let {
                 if(it==true){
                     dataBinding.selectedCryptoLoading.visibility=View.VISIBLE
+                    dataBinding.coinCodeTextView.visibility=View.GONE
+                    dataBinding.coinNameTextView.visibility=View.GONE
+                    dataBinding.coinPriceTextView.visibility=View.GONE
+                    dataBinding.coinMarketCapTextView.visibility=View.GONE
+
                 }
                 else
                 {
                     dataBinding.selectedCryptoLoading.visibility=View.GONE
+                    dataBinding.coinCodeTextView.visibility=View.VISIBLE
+                    dataBinding.coinNameTextView.visibility=View.VISIBLE
+                    dataBinding.coinPriceTextView.visibility=View.VISIBLE
+                    dataBinding.coinMarketCapTextView.visibility=View.VISIBLE
                 }
             }
         })

@@ -51,45 +51,48 @@
 
                 <TextView
 
+                    android:id="@+id/coinNameTextView"
                     android:layout_width="wrap_content"
-                    android:text="Coin Name : "
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="10dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp">
+                    android:layout_gravity="end"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="Coin Name : ">
 
                 </TextView>
 
                 <TextView
+                    android:id="@+id/coinCodeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coin Code : "
                     android:layout_gravity="end"
                     android:layout_marginTop="30dp"
-                    >
+                    android:layout_marginEnd="10dp"
+                    android:text="Coin Code : ">
 
 
                 </TextView>
+
                 <TextView
+                    android:id="@+id/coinPriceTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coin Price : "
                     android:layout_gravity="end"
                     android:layout_marginTop="30dp"
-                    >
+                    android:layout_marginEnd="10dp"
+                    android:text="Coin Price : ">
 
 
                 </TextView>
+
                 <TextView
+                    android:id="@+id/coinMarketCapTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coin MarketCap : "
                     android:layout_gravity="end"
                     android:layout_marginTop="30dp"
-                    >
+                    android:layout_marginEnd="10dp"
+                    android:text="Coin MarketCap : ">
 
 
                 </TextView>

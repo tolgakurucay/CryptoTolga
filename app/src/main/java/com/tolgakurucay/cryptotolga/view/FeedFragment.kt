@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.adapter.CoinListAdapter
+import com.tolgakurucay.cryptotolga.databinding.FragmentFeedBinding
 import com.tolgakurucay.cryptotolga.util.Constants
 import com.tolgakurucay.cryptotolga.viewmodel.FeedFragmentModel
 
@@ -19,6 +20,7 @@ class FeedFragment : Fragment() {
 
     private lateinit var viewModel:FeedFragmentModel
     private var adapter = CoinListAdapter(arrayListOf())
+    private lateinit var binding:FragmentFeedBinding
      var currency:String="USD"
 
 
@@ -36,11 +38,15 @@ class FeedFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_feed, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding= FragmentFeedBinding.bind(view)
+
+//from
 
         coinList.layoutManager=LinearLayoutManager(view.context)
         coinList.adapter=adapter
@@ -50,7 +56,13 @@ class FeedFragment : Fragment() {
 
 
         viewModel=ViewModelProviders.of(this).get(FeedFragmentModel::class.java)
+        viewModel.countDownTimer(3)
+
+
         viewModel.getDataFilterByCurrency(currency,Constants.API_KEY)
+
+
+//here
 
 
 
@@ -144,8 +156,19 @@ class FeedFragment : Fragment() {
                     progressBar.visibility=View.GONE
                 }
             }
-        })
 
+        })
+        viewModel.skipIntro.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                if(it){
+                    viewIntro.visibility=View.INVISIBLE
+                }
+                else
+                {
+                    viewIntro.visibility=View.VISIBLE
+                }
+            }
+        })
 
     }
 
