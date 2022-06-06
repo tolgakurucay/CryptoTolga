@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1075171950576",
+    "project_id": "crypto-tolga",
+    "storage_bucket": "crypto-tolga.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075171950576:android:ba99b8e9171af8de62e735",
+        "android_client_info": {
+          "package_name": "com.tolgakurucay.cryptotolga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075171950576-ff68emlutcdl5sfn156jq0e0kdt17cfu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tolgakurucay.cryptotolga",
+            "certificate_hash": "fb874de205089a2377ed6ee2c3e7823853d0f856"
+          }
+        },
+        {
+          "client_id": "1075171950576-dmhdujver4qa1tt5amf7r7cn38v4lgr7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkE2k21Ai-c3NLUG2oEY_q40pUdmbTLjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075171950576-dmhdujver4qa1tt5amf7r7cn38v4lgr7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,11 @@
 
 </style>
 
+    <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+    </style>
+
 
 
 

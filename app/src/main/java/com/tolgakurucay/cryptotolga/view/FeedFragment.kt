@@ -2,14 +2,22 @@ package com.tolgakurucay.cryptotolga.view
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.adapter.CoinListAdapter
+import com.tolgakurucay.cryptotolga.databinding.FragmentCoinBinding
 import com.tolgakurucay.cryptotolga.databinding.FragmentFeedBinding
+import com.tolgakurucay.cryptotolga.model.Coin
 import com.tolgakurucay.cryptotolga.util.Constants
 import com.tolgakurucay.cryptotolga.viewmodel.FeedFragmentModel
 
@@ -21,6 +29,7 @@ class FeedFragment : Fragment() {
     private lateinit var viewModel:FeedFragmentModel
     private var adapter = CoinListAdapter(arrayListOf())
     private lateinit var binding:FragmentFeedBinding
+
      var currency:String="USD"
 
 
@@ -46,23 +55,16 @@ class FeedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding= FragmentFeedBinding.bind(view)
 
-//from
 
         coinList.layoutManager=LinearLayoutManager(view.context)
         coinList.adapter=adapter
 
 
-
-
-
         viewModel=ViewModelProviders.of(this).get(FeedFragmentModel::class.java)
-        viewModel.countDownTimer(3)
 
 
         viewModel.getDataFilterByCurrency(currency,Constants.API_KEY)
 
-
-//here
 
 
 
@@ -88,6 +90,16 @@ class FeedFragment : Fragment() {
 
 
 
+
+
+        binding.editTextCoin.addTextChangedListener {
+            viewModel.searchOneCoin(binding.editTextCoin.text.toString())
+        }
+
+
+
+
+
         observeLiveData()
 
 
@@ -101,28 +113,50 @@ class FeedFragment : Fragment() {
 
     }
 
+
     private fun dollar(){
         Constants.curr="USD"
+
+
         viewModel.getDataFilterByCurrency(Constants.curr, Constants.API_KEY)
 
     }
     private fun turkishLira(){
         Constants.curr="TRY"
+
         viewModel.getDataFilterByCurrency(Constants.curr, Constants.API_KEY)
 
     }
     private fun euro(){
         Constants.curr="EUR"
+
         viewModel.getDataFilterByCurrency(Constants.curr, Constants.API_KEY)
 
     }
 
+
+
     private fun observeLiveData(){
+
+        viewModel.searchedCoins.observe(viewLifecycleOwner, Observer {
+
+            if(it!=null){
+                adapter.updateCoinList(it)
+            }
+
+
+        })
+
+
+
+
+
         viewModel.coins.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it?.let {
                 coinList.visibility=View.VISIBLE
                 //burda adapter içi doldurulacakw
                 adapter.updateCoinList(it)
+
 
             }
 
@@ -158,17 +192,7 @@ class FeedFragment : Fragment() {
             }
 
         })
-        viewModel.skipIntro.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                if(it){
-                    viewIntro.visibility=View.INVISIBLE
-                }
-                else
-                {
-                    viewIntro.visibility=View.VISIBLE
-                }
-            }
-        })
+
 
     }
 

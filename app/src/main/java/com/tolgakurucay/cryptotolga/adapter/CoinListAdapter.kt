@@ -1,6 +1,7 @@
 package com.tolgakurucay.cryptotolga.adapter
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -46,6 +47,7 @@ class CoinListAdapter(val arrayList: ArrayList<Coin>) :
     override fun getItemCount(): Int {
         return arrayList.size
     }
+
 
 
     fun updateCoinList(newCoinList: List<Coin>) {

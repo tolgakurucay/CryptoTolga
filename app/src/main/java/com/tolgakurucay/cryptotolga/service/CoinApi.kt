@@ -37,7 +37,7 @@ interface CoinApi {
       @GET("currencies/ticker")
       fun getCryptoFilterByCurrency(
           @Query("key") key : String,
-          @Query("currency") currency : String,
+          @Query("convert") currency : String,
       ) : Single<List<Coin>>
 
 

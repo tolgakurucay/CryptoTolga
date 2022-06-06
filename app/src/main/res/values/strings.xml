@@ -12,4 +12,22 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="error">Error</string>
+    <string name="codeTR">Kod</string>
+    <string name="codeEN">Code</string>
+    <string name="nameTR">İsim</string>
+    <string name="nameEN">Name</string>
+    <string name="marketCapTR">Piyasa Değeri</string>
+    <string name="marketCapEN">Market Cap</string>
+    <string name="priceTR">Fiyat</string>
+    <string name="priceEN">Price</string>
+    <string name="statusTR">Durum</string>
+    <string name="statusEN">Status</string>
+    <string name="rankTR">Sıralama</string>
+    <string name="rankEN">Rank</string>
+    <string name="dateTR">Tarih</string>
+    <string name="dateEN">Date</string>
+    <string name="addFavoritesTR">Favorilere Ekle</string>
+    <string name="addFavoritesEN">Add Favorites</string>
+    <string name="profitAndLossTR">Kar Zarar Ekle</string>
+    <string name="profitAndLossEN">Add Stop and Loss</string>
 </resources>

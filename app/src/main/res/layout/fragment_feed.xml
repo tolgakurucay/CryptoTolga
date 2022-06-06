@@ -13,6 +13,7 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         tools:context=".view.FeedFragment">
 
 
@@ -22,38 +23,44 @@
 
              android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
+
             android:layout_height="match_parent">
-            <View
-                android:layout_width="match_parent"
-                android:id="@+id/viewIntro"
-                android:background="@drawable/wait"
-                android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-                app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-                app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-                android:layout_height="match_parent">
 
-            </View>
 
+
+
+
+
+            <EditText
+                android:id="@+id/editTextCoin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/coinList"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="8dp"
                 android:background="#FFFFFF"
                 app:layout_constraintBottom_toTopOf="@+id/bottomNav"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintTop_toBottomOf="@+id/editTextCoin">
 
             </androidx.recyclerview.widget.RecyclerView>
 
             <ProgressBar
                 android:id="@+id/progressBar"
-                style="@style/Widget.AppCompat.ProgressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -78,16 +85,17 @@
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNav"
                 android:layout_width="match_parent"
-                app:menu="@menu/feed_menu"
-                app:itemTextColor="@color/white"
-                app:itemIconTint="@color/white"
-                android:background="@color/gold"
                 android:layout_height="wrap_content"
-
+                android:background="@color/gold"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
 
                 app:layout_constraintEnd_toEndOf="@id/constraintLayout"
-                app:layout_constraintStart_toStartOf="@id/constraintLayout" >
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/constraintLayout"
+                app:menu="@menu/feed_menu">
 
             </com.google.android.material.bottomnavigation.BottomNavigationView>
 

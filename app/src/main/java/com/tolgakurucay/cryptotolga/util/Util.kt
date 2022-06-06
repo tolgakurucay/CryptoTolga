@@ -73,3 +73,4 @@ fun downloadImage(imageView:ImageView,url:String){
 fun downloadImage(imageView: ImageView, url: String?) {
     imageView.downloadFromUrlWithCoil(url, placeHolderProgressBar(imageView.context))
 }
+

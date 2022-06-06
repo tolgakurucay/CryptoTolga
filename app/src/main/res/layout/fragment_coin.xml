@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
@@ -9,176 +10,262 @@
             name="Coin"
             type="com.tolgakurucay.cryptotolga.model.Coin" />
 
+
     </data>
 
 
     <LinearLayout
+        android:id="@+id/LinearLayout"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
         tools:context=".view.CoinFragment">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:downloadImage="@{Coin.url}"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
 
-            android:layout_gravity="center">
+            android:downloadImage="@{Coin.url}">
 
 
         </ImageView>
-        <ProgressBar
-            android:id="@+id/selectedCryptoLoading"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:value="false"
-            android:layout_height="wrap_content">
 
-        </ProgressBar>
-        <LinearLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-
-                    android:id="@+id/coinNameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coin Name : ">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/coinCodeTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coin Code : ">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
 
-                </TextView>
-
-                <TextView
-                    android:id="@+id/coinPriceTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coin Price : ">
-
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/coinMarketCapTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coin MarketCap : ">
+            <TextView
+                android:id="@+id/coinStatusTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/statusEN"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/coinPriceTextView">
 
 
-                </TextView>
+            </TextView>
+
+            <TextView
+                android:id="@+id/coinRankTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/rankEN"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/coinStatusTextView">
 
 
+            </TextView>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="32dp"
+                android:text="@{Coin.name}"
+                app:layout_constraintBottom_toBottomOf="@+id/coinCodeTextView"
+                app:layout_constraintStart_toEndOf="@+id/coinCodeTextView"
+                app:layout_constraintTop_toTopOf="@+id/coinCodeTextView">
 
 
+            </TextView>
 
-            </LinearLayout>
+            <TextView
 
-            <LinearLayout
+                android:id="@+id/coinNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/nameEN"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/coinCodeTextView">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/coinPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="32dp"
+                android:text="@{Coin.price}"
+                app:layout_constraintBottom_toBottomOf="@+id/coinPriceTextView"
+                app:layout_constraintStart_toEndOf="@+id/coinPriceTextView"
+                app:layout_constraintTop_toTopOf="@+id/coinPriceTextView">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/coinMarketCap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="32dp"
+                android:text="@{Coin.marketCap}"
+                app:layout_constraintBottom_toBottomOf="@+id/coinMarketCapTextView"
+                app:layout_constraintStart_toEndOf="@+id/coinMarketCapTextView"
+                app:layout_constraintTop_toTopOf="@+id/coinMarketCapTextView">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/coinMarketCapTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/marketCapEN"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/coinNameTextView">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/coinPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/priceEN"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/coinMarketCapTextView">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/coinCodeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/codeEN"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/coinName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@{Coin.coinName}"
+                app:layout_constraintBottom_toBottomOf="@+id/coinNameTextView"
+                app:layout_constraintStart_toEndOf="@+id/coinNameTextView"
+                app:layout_constraintTop_toTopOf="@+id/coinNameTextView">
+
+            </TextView>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                app:layout_constraintGuide_begin="174dp" />
 
-                <TextView
-                    android:id="@+id/coinName"
-                    android:layout_width="wrap_content"
-                    android:text="@{Coin.coinName}"
-                    android:layout_gravity="start"
-                    android:layout_marginStart="10dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@{Coin.status}"
+                app:layout_constraintBottom_toBottomOf="@+id/coinStatusTextView"
+                app:layout_constraintStart_toEndOf="@+id/coinStatusTextView"
+                app:layout_constraintTop_toTopOf="@+id/coinStatusTextView" />
 
-                </TextView>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@{Coin.rank}"
+                app:layout_constraintBottom_toBottomOf="@+id/coinRankTextView"
+                app:layout_constraintStart_toEndOf="@+id/coinRankTextView"
+                app:layout_constraintTop_toTopOf="@+id/coinRankTextView" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{Coin.name}"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="30dp"
-                    >
+            <TextView
+                android:id="@+id/coinDateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/dateEN"
+                app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/coinRankTextView" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@{Coin.priceDate}"
+                app:layout_constraintBottom_toBottomOf="@+id/coinDateTextView"
+                app:layout_constraintStart_toEndOf="@+id/coinDateTextView"
+                app:layout_constraintTop_toTopOf="@+id/coinDateTextView" />
+
+            <Button
+                android:id="@+id/buttonFavorites"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/addFavoritesEN"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/buttonProfitAndLoss"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonProfitAndLoss"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="@string/profitAndLossEN"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/selectedCryptoLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:value="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </ProgressBar>
 
 
-                </TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{Coin.price}"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="30dp"
-                    >
-
-
-                </TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{Coin.marketCap}"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="30dp"
-                    >
-
-
-                </TextView>
-
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
