@@ -1,6 +1,8 @@
 package com.tolgakurucay.cryptotolga.view
 
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -12,7 +14,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.ViewModelStoreOwner
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.adapter.CoinListAdapter
 import com.tolgakurucay.cryptotolga.databinding.FragmentCoinBinding
@@ -84,6 +88,7 @@ class FeedFragment : Fragment() {
                 R.id.dollar-> dollar()
                 R.id.turkish_lira->turkishLira()
                 R.id.euro->euro()
+                R.id.signOut->signOut()
             }
             true
         }
@@ -131,6 +136,34 @@ class FeedFragment : Fragment() {
         Constants.curr="EUR"
 
         viewModel.getDataFilterByCurrency(Constants.curr, Constants.API_KEY)
+
+    }
+
+    private fun signOut(){
+
+        val auth=FirebaseAuth.getInstance()
+
+        if(auth.currentUser!=null){
+
+            val alertDialog=AlertDialog.Builder(this.requireContext())
+
+            alertDialog.setTitle("Çıkış İşlemi")
+            alertDialog.setMessage("Çıkış Yapmak İstediğinize Emin Misiniz?")
+            alertDialog.setPositiveButton("Evet"){a,b->
+
+                auth.signOut()
+                val action=FeedFragmentDirections.actionFeedFragmentToLoginFragment()
+                Navigation.findNavController(this.requireView()).navigate(action)
+                this.requireParentFragment().onStop()
+
+            }
+            alertDialog.create().show()
+
+
+
+
+
+        }
 
     }
 
@@ -194,6 +227,10 @@ class FeedFragment : Fragment() {
         })
 
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
 

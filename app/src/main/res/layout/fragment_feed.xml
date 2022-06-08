@@ -27,10 +27,6 @@
             android:layout_height="match_parent">
 
 
-
-
-
-
             <EditText
                 android:id="@+id/editTextCoin"
                 android:layout_width="0dp"

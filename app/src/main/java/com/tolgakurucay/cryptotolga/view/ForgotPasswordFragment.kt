@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -46,12 +47,12 @@ class ForgotPasswordFragment : Fragment() {
 
         binding.sifremiUnuttumButton.setOnClickListener {
             if(validateField()==true){
-                Log.d("bilgi","Mail Doğrulandı")
+
                 viewModel.forgotPassword(binding.forgotMailText.text.toString())
             }
             else
             {
-                Log.d("bilgi","Mail Doğrulanmadı")
+                Toast.makeText(this@ForgotPasswordFragment.requireContext(),"Lütfen Gerekli Alanı Düzgün Bir Biçimde Doldurunuz",Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -87,13 +88,13 @@ class ForgotPasswordFragment : Fragment() {
         viewModel.isMailTrue.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if(it){
-                    Log.d("bilgi","Mail'e gönderildi")
+                    Toast.makeText(this@ForgotPasswordFragment.requireContext(),"Mail'e Şifre Sıfırlama Linki Gönderildi!",Toast.LENGTH_SHORT).show()
                     val action=ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToLoginFragment()
                     Navigation.findNavController(this.requireView()).navigate(action)
                 }
                 else
                 {
-                    Log.d("bilgi","Mail'e gönderilemedi")
+                    Toast.makeText(this@ForgotPasswordFragment.requireContext(),"Bu Mail Adresine Kayıtlı Bir Hesap Yok",Toast.LENGTH_SHORT).show()
                 }
             }
         })

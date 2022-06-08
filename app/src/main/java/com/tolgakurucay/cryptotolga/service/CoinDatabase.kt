@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.tolgakurucay.cryptotolga.model.Coin
+import com.tolgakurucay.cryptotolga.model.FavoriteItem
 
 
 @Database(entities = arrayOf(Coin::class), version = 1)

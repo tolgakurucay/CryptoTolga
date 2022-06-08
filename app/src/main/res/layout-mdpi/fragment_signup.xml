@@ -58,8 +58,7 @@
             android:id="@+id/signupMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-Posta"
-            android:inputType="textEmailAddress" />
+            android:hint="E-Posta" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

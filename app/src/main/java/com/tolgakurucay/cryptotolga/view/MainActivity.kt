@@ -6,11 +6,18 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.adapter.CoinListAdapter
+import com.tolgakurucay.cryptotolga.databinding.ActivityMainBinding
 import com.tolgakurucay.cryptotolga.model.Coin
 import com.tolgakurucay.cryptotolga.util.Constants
 import com.tolgakurucay.cryptotolga.viewmodel.FeedFragmentModel
@@ -19,14 +26,19 @@ import kotlinx.android.synthetic.main.fragment_feed.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding:ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
         setContentView(R.layout.activity_main)
 
 
     }
+
+
 
 
 }

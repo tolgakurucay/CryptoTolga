@@ -60,8 +60,8 @@ class SignupFragment : Fragment() {
            }
             else
            {
-               Toast.makeText(this.context,"Lütfen Gerekli İşlemleri Yapın",Toast.LENGTH_SHORT).show()
-               Log.d("bilgi","Lütfen Gerekli İşlemleri Yapın")
+               Toast.makeText(this.context,"Lütfen Gerekli Bilgileri Düzgün Bir Biçimde Giriniz",Toast.LENGTH_SHORT).show()
+
            }
         }
 
@@ -76,13 +76,14 @@ class SignupFragment : Fragment() {
         viewModel.signUp.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if(it){
-                    Log.d("bilgi","Kayıt Başarılı")
+                    Toast.makeText(this@SignupFragment.requireContext(),"Kayıt Başarılı",Toast.LENGTH_SHORT).show()
                     val action=SignupFragmentDirections.actionSignupFragmentToLoginFragment()
                     Navigation.findNavController(this.requireView()).navigate(action)
                 }
                 else
                 {
                     Log.d("bilgi","Başarısız")
+                    Toast.makeText(this@SignupFragment.requireContext(),"Kayıt Başarısız\nBu Mail Adresine Kayıtlı Bir Hesap Olabilir",Toast.LENGTH_SHORT).show()
                 }
             }
         })

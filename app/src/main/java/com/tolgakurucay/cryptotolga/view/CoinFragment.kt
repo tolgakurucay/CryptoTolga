@@ -2,6 +2,7 @@ package com.tolgakurucay.cryptotolga.view
 
 import android.os.Bundle
 import android.support.v4.media.session.MediaSessionCompat.Token.fromBundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.media.AudioAttributesCompat.fromBundle
+import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.databinding.FragmentCoinBinding
 import com.tolgakurucay.cryptotolga.util.Constants
@@ -27,6 +30,7 @@ class CoinFragment : Fragment() {
     private lateinit var viewModel:CoinFragmentModel
     private var id : String=""
     private lateinit var dataBinding:FragmentCoinBinding
+    private lateinit var auth:FirebaseAuth
 
       var currency:String="TRY"
 
@@ -52,6 +56,12 @@ class CoinFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        auth= FirebaseAuth.getInstance()
+        if(auth.currentUser==null){
+            val action=CoinFragmentDirections.actionCoinFragmentToLoginFragment()
+            Navigation.findNavController(this@CoinFragment.requireView()).navigate(action)
+        }
+
         language(Constants.curr)
 
         arguments?.let {
@@ -63,6 +73,16 @@ class CoinFragment : Fragment() {
         }
         viewModel=ViewModelProviders.of(this@CoinFragment).get(CoinFragmentModel::class.java)
         viewModel.getSingleDataFromAPI(id,currency,layoutInflater)
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -101,11 +121,26 @@ class CoinFragment : Fragment() {
 
     private fun observeLiveData(){
 
+        viewModel.addedToFavorites.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                if(it){
+                    Log.d("bilgi","Eklendi")
+                }
+                else
+                {
+                    Log.d("bilgi","Eklenmedi")
+                }
+            }
+        })
+
+
+
+
         viewModel.coin.observe(viewLifecycleOwner, Observer {
             it?.let {
 
 
-                    dataBinding.coin=it.get(0)
+                    dataBinding.coin= it[0]
 
 
             }
@@ -114,20 +149,22 @@ class CoinFragment : Fragment() {
         viewModel.loading.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if(it==true){
+
+                    dataBinding.constraintLay.visibility=View.GONE
+
                     dataBinding.selectedCryptoLoading.visibility=View.VISIBLE
-                    dataBinding.coinCodeTextView.visibility=View.GONE
-                    dataBinding.coinNameTextView.visibility=View.GONE
-                    dataBinding.coinPriceTextView.visibility=View.GONE
-                    dataBinding.coinMarketCapTextView.visibility=View.GONE
+
+
 
                 }
                 else
                 {
+
+                    dataBinding.constraintLay.visibility=View.VISIBLE
+
                     dataBinding.selectedCryptoLoading.visibility=View.GONE
-                    dataBinding.coinCodeTextView.visibility=View.VISIBLE
-                    dataBinding.coinNameTextView.visibility=View.VISIBLE
-                    dataBinding.coinPriceTextView.visibility=View.VISIBLE
-                    dataBinding.coinMarketCapTextView.visibility=View.VISIBLE
+
+
                 }
             }
         })
@@ -135,6 +172,9 @@ class CoinFragment : Fragment() {
 
 
 
+    }
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
 

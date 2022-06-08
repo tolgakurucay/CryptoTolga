@@ -63,10 +63,10 @@ class LoginFragment : Fragment() {
 
 
 
-       /* if(auth.currentUser!=null){
+        if(auth.currentUser!=null){
             val action=LoginFragmentDirections.actionLoginFragmentToFeedFragment()
             Navigation.findNavController(view).navigate(action)
-        }*/
+        }
 
 
         binding.uyeOlButton.setOnClickListener {
@@ -87,6 +87,7 @@ class LoginFragment : Fragment() {
             }
             else
             {
+                Toast.makeText(this.requireContext(),"Girdiğiniz Bilgileri Kontrol Ediniz",Toast.LENGTH_SHORT).show()
                 Log.d("bilgi","Validasyon Hatalı")
             }
 
@@ -117,6 +118,7 @@ class LoginFragment : Fragment() {
                }
                else
                {
+                   Log.d("bilgi","Mail ve-veya Şifre Hatalı")
                    Toast.makeText(this@LoginFragment.context,"Mail ve-veya Şifre Hatalı",Toast.LENGTH_SHORT).show()
                }
 
@@ -144,9 +146,7 @@ class LoginFragment : Fragment() {
             if(binding.passwordEditText.text.toString()==""){
                 binding.textInputLayoutPassword.helperText="Boş Şifre"
             }
-            else if(binding.passwordEditText.text.toString().length<8){
-                binding.textInputLayoutPassword.helperText="En Az 8 Karakter"
-            }
+
             else
             {
                 binding.textInputLayoutPassword.helperText=null

@@ -30,6 +30,15 @@
 
 
         </item>
+        <item android:id="@+id/signOut"
+            android:title="Çıkış Yap"
+            android:icon="@drawable/logout"
+            app:showAsAction="ifRoom">
+
+        </item>
+
+
+
 
 
     </group>

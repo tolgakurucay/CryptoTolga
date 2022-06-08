@@ -7,6 +7,7 @@ object Constants {
     val BASE_URL : String="https://api.nomics.com/v1/"
     var curr : String="USD"
     var language : String="TRY"
+    var name : String=""
 
 
 }
