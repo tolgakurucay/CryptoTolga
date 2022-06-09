@@ -77,7 +77,7 @@ class SignupFragment : Fragment() {
             it?.let {
                 if(it){
                     Toast.makeText(this@SignupFragment.requireContext(),"Kayıt Başarılı",Toast.LENGTH_SHORT).show()
-                    val action=SignupFragmentDirections.actionSignupFragmentToLoginFragment()
+                    val action=SignupFragmentDirections.actionSignupFragment2ToLoginFragment2()
                     Navigation.findNavController(this.requireView()).navigate(action)
                 }
                 else

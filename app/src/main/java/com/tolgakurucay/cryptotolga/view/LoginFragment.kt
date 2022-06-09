@@ -1,5 +1,6 @@
 package com.tolgakurucay.cryptotolga.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -31,7 +32,10 @@ class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth= FirebaseAuth.getInstance()
-
+        if(auth.currentUser!=null){
+            val intent=Intent(activity,MainActivity::class.java)
+            startActivity(intent)
+        }
 
         arguments?.let {
 
@@ -53,6 +57,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+
+
+
         binding= FragmentLoginBinding.bind(view)
 
         viewModel=ViewModelProvider(this).get(LoginFragmentModel::class.java)
@@ -63,20 +70,17 @@ class LoginFragment : Fragment() {
 
 
 
-        if(auth.currentUser!=null){
-            val action=LoginFragmentDirections.actionLoginFragmentToFeedFragment()
-            Navigation.findNavController(view).navigate(action)
-        }
+
 
 
         binding.uyeOlButton.setOnClickListener {
 
-            val action=LoginFragmentDirections.actionLoginFragmentToSignupFragment()
+            val action=LoginFragmentDirections.actionLoginFragment2ToSignupFragment2()
             Navigation.findNavController(it).navigate(action)
         }
 
         binding.sifremiUnuttumTextView.setOnClickListener {
-            val action=LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment()
+            val action=LoginFragmentDirections.actionLoginFragment2ToForgotPasswordFragment2()
             Navigation.findNavController(it).navigate(action)
         }
 
@@ -113,8 +117,9 @@ class LoginFragment : Fragment() {
            it?.let {
 
                if(it){
-                   val action=LoginFragmentDirections.actionLoginFragmentToFeedFragment()
-                   Navigation.findNavController(this.requireView()).navigate(action)
+                   ///////
+                   val intent=Intent(activity,MainActivity::class.java)
+                   startActivity(intent)
                }
                else
                {

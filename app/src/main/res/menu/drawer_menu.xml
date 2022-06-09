@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/changeLanguage" android:title="Change Language"> </item>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navView"
+    >
+
+<group android:checkableBehavior="single">
+
+
+
+
+    <item android:id="@+id/languages"
+        android:title="Languages">
+
+        <menu>
+            <item android:id="@+id/turkish"
+                android:title="Turkish"
+                android:icon="@drawable/language">
+
+
+            </item>
+        </menu>
+
+    </item>
+
+
+
+    <item android:id="@+id/profile"
+        android:title="Profile">
+
+        <menu>
+            <item android:id="@+id/logout"
+                android:title="Log Out"
+                android:icon="@drawable/logout">
+
+            </item>
+
+
+
+        </menu>
+
+
+
+
+
+    </item>
+
+
+</group>
+
+
+
+
 
 </menu>

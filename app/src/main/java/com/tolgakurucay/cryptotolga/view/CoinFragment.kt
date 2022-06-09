@@ -1,5 +1,6 @@
 package com.tolgakurucay.cryptotolga.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.media.session.MediaSessionCompat.Token.fromBundle
 import android.util.Log
@@ -58,8 +59,8 @@ class CoinFragment : Fragment() {
 
         auth= FirebaseAuth.getInstance()
         if(auth.currentUser==null){
-            val action=CoinFragmentDirections.actionCoinFragmentToLoginFragment()
-            Navigation.findNavController(this@CoinFragment.requireView()).navigate(action)
+            val intent= Intent(activity,EntryActivity::class.java)
+            startActivity(intent)
         }
 
         language(Constants.curr)

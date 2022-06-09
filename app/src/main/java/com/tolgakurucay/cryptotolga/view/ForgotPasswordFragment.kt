@@ -68,7 +68,7 @@ class ForgotPasswordFragment : Fragment() {
             if(binding.forgotMailText.text.toString().isEmpty()){
                 binding.forgotMailLayout.helperText="Mail Adresi Giriniz"
             }
-            else if(Patterns.EMAIL_ADDRESS.matcher(binding.forgotMailText.text.toString()).matches()!=true)
+            else if(!Patterns.EMAIL_ADDRESS.matcher(binding.forgotMailText.text.toString()).matches())
             {
                 binding.forgotMailLayout.helperText="Mail Adres Formatı Yanlış"
             }
@@ -89,7 +89,7 @@ class ForgotPasswordFragment : Fragment() {
             it?.let {
                 if(it){
                     Toast.makeText(this@ForgotPasswordFragment.requireContext(),"Mail'e Şifre Sıfırlama Linki Gönderildi!",Toast.LENGTH_SHORT).show()
-                    val action=ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToLoginFragment()
+                    val action=ForgotPasswordFragmentDirections.actionForgotPasswordFragment2ToLoginFragment2()
                     Navigation.findNavController(this.requireView()).navigate(action)
                 }
                 else

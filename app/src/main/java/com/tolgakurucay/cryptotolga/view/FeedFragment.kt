@@ -3,6 +3,7 @@ package com.tolgakurucay.cryptotolga.view
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -57,7 +58,17 @@ class FeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val auth=FirebaseAuth.getInstance()
+        if(auth.currentUser==null){
+            val intent= Intent(activity,EntryActivity::class.java)
+            startActivity(intent)
+        }
+
+
         binding= FragmentFeedBinding.bind(view)
+
 
 
         coinList.layoutManager=LinearLayoutManager(view.context)
@@ -88,7 +99,7 @@ class FeedFragment : Fragment() {
                 R.id.dollar-> dollar()
                 R.id.turkish_lira->turkishLira()
                 R.id.euro->euro()
-                R.id.signOut->signOut()
+
             }
             true
         }
@@ -139,33 +150,7 @@ class FeedFragment : Fragment() {
 
     }
 
-    private fun signOut(){
 
-        val auth=FirebaseAuth.getInstance()
-
-        if(auth.currentUser!=null){
-
-            val alertDialog=AlertDialog.Builder(this.requireContext())
-
-            alertDialog.setTitle("Çıkış İşlemi")
-            alertDialog.setMessage("Çıkış Yapmak İstediğinize Emin Misiniz?")
-            alertDialog.setPositiveButton("Evet"){a,b->
-
-                auth.signOut()
-                val action=FeedFragmentDirections.actionFeedFragmentToLoginFragment()
-                Navigation.findNavController(this.requireView()).navigate(action)
-                this.requireParentFragment().onStop()
-
-            }
-            alertDialog.create().show()
-
-
-
-
-
-        }
-
-    }
 
 
 
