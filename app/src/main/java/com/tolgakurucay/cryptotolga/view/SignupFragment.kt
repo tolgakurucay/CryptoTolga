@@ -1,5 +1,7 @@
 package com.tolgakurucay.cryptotolga.view
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -12,6 +14,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.google.android.material.snackbar.Snackbar
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.databinding.FragmentSignupBinding
 import com.tolgakurucay.cryptotolga.viewmodel.SignupFragmentModel
@@ -76,9 +79,26 @@ class SignupFragment : Fragment() {
         viewModel.signUp.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if(it){
-                    Toast.makeText(this@SignupFragment.requireContext(),"Kayıt Başarılı",Toast.LENGTH_SHORT).show()
-                    val action=SignupFragmentDirections.actionSignupFragment2ToLoginFragment2()
-                    Navigation.findNavController(this.requireView()).navigate(action)
+
+
+
+                    val alertDialog= AlertDialog.Builder(this@SignupFragment.requireContext())
+
+                    alertDialog.setTitle("Kayıt Başarılı")
+                    alertDialog.setMessage("Mail Adresinize Gelen Doğrulama Linkine Tıkladıktan Sonra Uygulamaya Giriş Yapabilirsiniz")
+                    alertDialog.setPositiveButton("Evet"){a,b->
+                        val action=SignupFragmentDirections.actionSignupFragment2ToLoginFragment2()
+                        Navigation.findNavController(this@SignupFragment.requireView()).navigate(action)
+
+
+
+                    }
+
+                    alertDialog.setIcon(R.drawable.mailbox)
+                    alertDialog.create().show()
+
+
+
                 }
                 else
                 {
@@ -161,6 +181,7 @@ class SignupFragment : Fragment() {
 
 
     }
+
 
 
 

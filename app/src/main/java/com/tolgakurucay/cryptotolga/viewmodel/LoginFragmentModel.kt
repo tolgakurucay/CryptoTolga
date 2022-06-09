@@ -1,8 +1,10 @@
 package com.tolgakurucay.cryptotolga.viewmodel
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.ActionCodeSettings
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -21,9 +23,12 @@ class LoginFragmentModel(application: Application): BaseViewModel(application) {
 
 
                 val auth=FirebaseAuth.getInstance()
+
+
                 auth.signInWithEmailAndPassword(email,password)
                     .addOnSuccessListener {
                         bool.value=true
+
                     }
                     .addOnFailureListener {
                         bool.value=false

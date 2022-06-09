@@ -25,10 +25,21 @@ class SignupFragmentModel(application: Application) : BaseViewModel(application)
 
             auth.createUserWithEmailAndPassword(email,password)
                 .addOnSuccessListener {
-                    signUp.value=true
-                    Constants.name=name
-                    val newUser=CreatedUserModel(name,email,password)
-                    firestore.collection("users").document(auth.currentUser!!.uid).set(newUser)//ALWAYS TRUE
+
+                    auth.currentUser!!.sendEmailVerification()
+                        .addOnSuccessListener {
+                            signUp.value=true
+                            Constants.name=name
+                            val newUser=CreatedUserModel(name,email,password)
+                            firestore.collection("users").document(auth.currentUser!!.uid).set(newUser)//ALWAYS TRUE
+                        }
+                        .addOnFailureListener {
+                            signUp.value=false
+                        }
+
+
+
+
 
 
 

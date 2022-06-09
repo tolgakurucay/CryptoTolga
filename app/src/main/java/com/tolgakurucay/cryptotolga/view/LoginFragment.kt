@@ -32,14 +32,13 @@ class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth= FirebaseAuth.getInstance()
-        if(auth.currentUser!=null){
+        if(auth.currentUser!=null && auth.currentUser!!.isEmailVerified){
+
+
             val intent=Intent(activity,MainActivity::class.java)
             startActivity(intent)
         }
 
-        arguments?.let {
-
-        }
     }
 
     override fun onCreateView(
@@ -118,8 +117,19 @@ class LoginFragment : Fragment() {
 
                if(it){
                    ///////
-                   val intent=Intent(activity,MainActivity::class.java)
-                   startActivity(intent)
+                       if(!auth.currentUser!!.isEmailVerified){
+                           Log.d("bilgi","Email doğrulanmadı")
+                          //e-mail doğrulansın
+                           Toast.makeText(this@LoginFragment.requireContext(),"Lütfen Mail Adresinize Gönderilen Kodu Doğrulayın ",Toast.LENGTH_LONG).show()
+
+                       }
+                   else
+                       {
+                           Log.d("bilgi","Email doğrulandı")
+                           val intent=Intent(activity,MainActivity::class.java)
+                           startActivity(intent)
+                       }
+
                }
                else
                {
