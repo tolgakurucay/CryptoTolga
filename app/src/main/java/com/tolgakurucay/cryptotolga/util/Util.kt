@@ -61,11 +61,7 @@ fun ImageView.downloadFromUrlWithCoil(url: String?, placeHolder: CircularProgres
 
 }
 
-/*@BindingAdapter("android:downloadImage")
-fun downloadImage(imageView:ImageView,url:String){
 
-    imageView.downloadFromUrl(url, placeHolderProgressBar(imageView.context))
-}*/
 
 
 
