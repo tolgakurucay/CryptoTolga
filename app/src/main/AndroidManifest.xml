@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CryptoTolga">
         <activity
-            android:name=".view.EntryActivity"
+            android:name=".view.EntryActivity" android:theme="@style/MyAppTheme.NoActionBar" android:noHistory="true"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

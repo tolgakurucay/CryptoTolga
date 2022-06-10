@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
 
-        android:background="@color/buttonTextColor">
+        android:background="@drawable/header_background">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ppImageView"
@@ -37,7 +37,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:downloadImage="@{NavigationViewProfile.imageUrl}"
-            android:src="@drawable/apo"
+            android:src="@drawable/person_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

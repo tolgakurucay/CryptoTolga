@@ -32,6 +32,7 @@ class CoinFragmentModel(application:Application) : BaseViewModel(application) {
      var coin = MutableLiveData<List<Coin>>()
     var loading=MutableLiveData<Boolean>()
     var addedToFavorites=MutableLiveData<Boolean>()
+    var isItemFavorited=MutableLiveData<Boolean>()
 
     private val coinApiService=CoinAPIService()
    private val disposable=CompositeDisposable()
@@ -40,12 +41,10 @@ class CoinFragmentModel(application:Application) : BaseViewModel(application) {
 
 
 
-    fun getSingleDataFromAPI(id:String,currency:String,layoutInflater: LayoutInflater){
+    fun getSingleDataFromAPI(id:String,currency:String,layoutInflater: LayoutInflater) {
 
 
         loading.value=true
-
-
 
            disposable.add(
 
@@ -79,6 +78,41 @@ class CoinFragmentModel(application:Application) : BaseViewModel(application) {
 
 
 
+
+    }
+
+    fun addToFavorites(id:String){
+        val auth=FirebaseAuth.getInstance()
+        val firestore=FirebaseFirestore.getInstance()
+
+        auth.currentUser?.let {
+
+            var model=FavoriteItem(id)
+            firestore.collection("favorites").document(it.uid).collection("favorites").add(model)
+                .addOnSuccessListener { addedToFavorites.value=true }
+                .addOnFailureListener { addedToFavorites.value=false }
+
+
+
+        }
+
+
+    }
+
+    fun isItemFavorited(id:String){
+        val auth=FirebaseAuth.getInstance()
+        val firestore=FirebaseFirestore.getInstance()
+
+        auth.currentUser?.let {
+
+            firestore.collection("favorites").document(it.uid).collection("favorites").whereEqualTo("coinId",id).get()
+                .addOnSuccessListener { isItemFavorited.value=true }
+                .addOnFailureListener { isItemFavorited.value=false }
+
+
+
+
+        }
 
     }
 

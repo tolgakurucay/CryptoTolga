@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "favorites")
+
 data class FavoriteItem(
 
     @ColumnInfo(name = "coinId")
@@ -13,6 +13,5 @@ data class FavoriteItem(
 
     ) {
 
-    @PrimaryKey(autoGenerate = true)
-    var id:Int=0
+
 }

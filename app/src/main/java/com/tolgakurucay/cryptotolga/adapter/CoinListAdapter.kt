@@ -69,5 +69,7 @@ class CoinListAdapter(val arrayList: ArrayList<Coin>) :
         Navigation.findNavController(v).navigate(action)
 
 
+
+
     }
 }

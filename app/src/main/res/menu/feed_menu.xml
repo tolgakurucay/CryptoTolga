@@ -8,23 +8,23 @@
 
         <item android:title="Dolar"
             android:id="@+id/dollar"
-            android:icon="@drawable/dollar_asset"
-            app:showAsAction="ifRoom"
+            android:icon="@drawable/dollar"
+
 
             />
 
         <item
             android:title="Türk Lirası"
             android:id="@+id/turkish_lira"
-            android:icon="@drawable/icons8_turkish_lira_64px"
-            app:showAsAction="ifRoom"
+            android:icon="@drawable/turkish_lira"
+
 
             />
         <item
             android:title="Euro"
             android:id="@+id/euro"
-            android:icon="@drawable/euro_asset"
-            app:showAsAction="ifRoom"
+            android:icon="@drawable/euro"
+
 
             >
 

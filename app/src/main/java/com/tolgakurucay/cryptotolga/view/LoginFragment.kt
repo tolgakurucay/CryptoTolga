@@ -126,8 +126,10 @@ class LoginFragment : Fragment() {
                    else
                        {
                            Log.d("bilgi","Email doğrulandı")
+                           
                            val intent=Intent(activity,MainActivity::class.java)
                            startActivity(intent)
+
                        }
 
                }

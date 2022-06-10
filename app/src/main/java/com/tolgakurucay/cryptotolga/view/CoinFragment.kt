@@ -29,6 +29,7 @@ import java.util.zip.Inflater
 class CoinFragment : Fragment() {
 
     private lateinit var viewModel:CoinFragmentModel
+
     private var id : String=""
     private lateinit var dataBinding:FragmentCoinBinding
     private lateinit var auth:FirebaseAuth
@@ -51,11 +52,15 @@ class CoinFragment : Fragment() {
 
 
 
+
         return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
 
         auth= FirebaseAuth.getInstance()
         if(auth.currentUser==null){
@@ -74,6 +79,11 @@ class CoinFragment : Fragment() {
         }
         viewModel=ViewModelProviders.of(this@CoinFragment).get(CoinFragmentModel::class.java)
         viewModel.getSingleDataFromAPI(id,currency,layoutInflater)
+
+
+        dataBinding.buttonFavorites.setOnClickListener {
+            viewModel.addToFavorites(id)
+        }
 
 
 
@@ -125,11 +135,11 @@ class CoinFragment : Fragment() {
         viewModel.addedToFavorites.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if(it){
-                    Log.d("bilgi","Eklendi")
+                    Log.d("bilgi","Favorilere Eklendi")
                 }
                 else
                 {
-                    Log.d("bilgi","Eklenmedi")
+                    Log.d("bilgi","Favorilere Eklenmedi")
                 }
             }
         })

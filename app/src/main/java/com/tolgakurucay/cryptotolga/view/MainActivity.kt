@@ -13,6 +13,7 @@ import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.coordinatorlayout.widget.ViewGroupUtils
 import androidx.core.view.GravityCompat
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -20,12 +21,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.adapter.CoinListAdapter
 import com.tolgakurucay.cryptotolga.databinding.ActivityMainBinding
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var toggle:ActionBarDrawerToggle
     private lateinit var binding:ActivityMainBinding
-    private lateinit var auth:FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +54,10 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth= FirebaseAuth.getInstance()
+
+
+
+
 
 
 
@@ -73,22 +79,13 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.logout->signOut()
                 R.id.turkish->Toast.makeText(applicationContext,"Yapım Aşamasında",Toast.LENGTH_SHORT).show()
+                R.id.favorites->replaceFragment(FavoritesFragment())
             }
             binding.drawerLayout.closeDrawer(GravityCompat.START)
             true
 
 
         }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -137,6 +134,11 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+    private fun replaceFragment(fragment:Fragment){
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,fragment).commit()
+    }
+
 
 
 

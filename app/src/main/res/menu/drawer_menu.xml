@@ -29,6 +29,13 @@
         android:title="Profile">
 
         <menu>
+
+            <item android:id="@+id/favorites"
+                android:title="Favorites"
+                android:icon="@drawable/star">
+
+            </item>
+
             <item android:id="@+id/logout"
                 android:title="Log Out"
                 android:icon="@drawable/logout">

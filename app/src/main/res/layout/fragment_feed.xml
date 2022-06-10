@@ -82,7 +82,7 @@
                 android:id="@+id/bottomNav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/gold"
+                android:background="@color/black"
                 app:itemIconTint="@color/white"
                 app:itemTextColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
