@@ -35,4 +35,13 @@
             app:argType="string"
             android:defaultValue="USD" />
     </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.tolgakurucay.cryptotolga.view.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
 </navigation>

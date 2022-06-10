@@ -39,6 +39,18 @@ class CoinFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth= FirebaseAuth.getInstance()
+        if(auth.currentUser==null){
+            val intent= Intent(activity,EntryActivity::class.java)
+            startActivity(intent)
+        }
+        arguments?.let {
+            id=CoinFragmentArgs.fromBundle(it).coinId
+
+            currency=CoinFragmentArgs.fromBundle(it).currency
+        }
+        viewModel=ViewModelProviders.of(this@CoinFragment).get(CoinFragmentModel::class.java)
+        viewModel.isItemFavorited(id)
 
     }
 
@@ -53,6 +65,7 @@ class CoinFragment : Fragment() {
 
 
 
+
         return dataBinding.root
     }
 
@@ -62,27 +75,25 @@ class CoinFragment : Fragment() {
 
 
 
-        auth= FirebaseAuth.getInstance()
-        if(auth.currentUser==null){
-            val intent= Intent(activity,EntryActivity::class.java)
-            startActivity(intent)
-        }
+
 
         language(Constants.curr)
 
         arguments?.let {
-            id=CoinFragmentArgs.fromBundle(it).coinId
 
-            currency=CoinFragmentArgs.fromBundle(it).currency
 
 
         }
-        viewModel=ViewModelProviders.of(this@CoinFragment).get(CoinFragmentModel::class.java)
+
         viewModel.getSingleDataFromAPI(id,currency,layoutInflater)
 
 
         dataBinding.buttonFavorites.setOnClickListener {
+           // viewModel.addToFavorites(id)
             viewModel.addToFavorites(id)
+        }
+        dataBinding.buttonProfitAndLoss.setOnClickListener {
+            viewModel.isItemFavorited(id)
         }
 
 
@@ -132,14 +143,34 @@ class CoinFragment : Fragment() {
 
     private fun observeLiveData(){
 
+
+
+        viewModel.isItemFavorited.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                if(it){
+                    //db'de var
+                    Log.d("bilgi",it.toString())
+                    dataBinding.buttonFavorites.setText("Favorilerden Kaldır")
+                }
+                else
+                {
+                    Log.d("bilgi",it.toString())
+                    dataBinding.buttonFavorites.setText("Favorilere Ekle")
+                }
+            }
+        })
+
         viewModel.addedToFavorites.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if(it){
                     Log.d("bilgi","Favorilere Eklendi")
+                    dataBinding.buttonFavorites.setText("Favorilerden Kaldır")
+
                 }
                 else
                 {
-                    Log.d("bilgi","Favorilere Eklenmedi")
+                    Log.d("bilgi","Favorilerden silindi")
+                    dataBinding.buttonFavorites.setText("Favorilere Ekle")
                 }
             }
         })
