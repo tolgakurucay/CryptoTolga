@@ -16,6 +16,7 @@ import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.databinding.FragmentLoginBinding
+import com.tolgakurucay.cryptotolga.view.activities.MainActivity
 import com.tolgakurucay.cryptotolga.viewmodel.LoginFragmentModel
 
 private lateinit var binding: FragmentLoginBinding
@@ -35,7 +36,7 @@ class LoginFragment : Fragment() {
         if(auth.currentUser!=null && auth.currentUser!!.isEmailVerified){
 
 
-            val intent=Intent(activity,MainActivity::class.java)
+            val intent=Intent(activity, MainActivity::class.java)
             startActivity(intent)
         }
 
@@ -127,7 +128,7 @@ class LoginFragment : Fragment() {
                        {
                            Log.d("bilgi","Email doğrulandı")
                            
-                           val intent=Intent(activity,MainActivity::class.java)
+                           val intent=Intent(activity, MainActivity::class.java)
                            startActivity(intent)
 
                        }

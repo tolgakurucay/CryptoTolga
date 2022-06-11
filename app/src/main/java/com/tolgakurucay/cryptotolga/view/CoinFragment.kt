@@ -2,28 +2,20 @@ package com.tolgakurucay.cryptotolga.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.media.session.MediaSessionCompat.Token.fromBundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.app.Person.fromBundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.media.AudioAttributesCompat.fromBundle
-import androidx.navigation.Navigation
-import androidx.viewbinding.ViewBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.databinding.FragmentCoinBinding
 import com.tolgakurucay.cryptotolga.util.Constants
+import com.tolgakurucay.cryptotolga.view.activities.EntryActivity
 import com.tolgakurucay.cryptotolga.viewmodel.CoinFragmentModel
-import kotlinx.android.synthetic.main.fragment_feed.*
-import java.util.zip.Inflater
 
 
 class CoinFragment : Fragment() {
@@ -41,7 +33,7 @@ class CoinFragment : Fragment() {
         super.onCreate(savedInstanceState)
         auth= FirebaseAuth.getInstance()
         if(auth.currentUser==null){
-            val intent= Intent(activity,EntryActivity::class.java)
+            val intent= Intent(activity, EntryActivity::class.java)
             startActivity(intent)
         }
         arguments?.let {

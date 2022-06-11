@@ -5,6 +5,7 @@ import io.reactivex.Observer
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 interface CoinApi {
 
@@ -39,6 +40,13 @@ interface CoinApi {
           @Query("key") key : String,
           @Query("convert") currency : String,
       ) : Single<List<Coin>>
+
+
+      @GET("currencies/ticker")
+      fun getFavorites(
+          @Query("key") key : String,
+          @Query("ids") coinId: String,
+          @Query("convert") currency : String) : Single<List<Coin>>
 
 
 

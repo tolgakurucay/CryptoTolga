@@ -34,6 +34,9 @@
             android:name="currency"
             app:argType="string"
             android:defaultValue="USD" />
+        <action
+            android:id="@+id/action_coinFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -43,5 +46,8 @@
         <action
             android:id="@+id/action_favoritesFragment_to_feedFragment"
             app:destination="@id/feedFragment" />
+        <action
+            android:id="@+id/action_favoritesFragment_to_coinFragment"
+            app:destination="@id/coinFragment" />
     </fragment>
 </navigation>

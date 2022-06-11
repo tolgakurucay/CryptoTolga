@@ -80,10 +80,10 @@
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNav"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/black"
-                app:itemIconTint="@color/white"
                 app:itemTextColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
 

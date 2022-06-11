@@ -1,44 +1,18 @@
-package com.tolgakurucay.cryptotolga.view
+package com.tolgakurucay.cryptotolga.view.activities
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.coordinatorlayout.widget.ViewGroupUtils
 import androidx.core.view.GravityCompat
-import androidx.core.view.get
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
 import com.tolgakurucay.cryptotolga.R
-import com.tolgakurucay.cryptotolga.adapter.CoinListAdapter
 import com.tolgakurucay.cryptotolga.databinding.ActivityMainBinding
-import com.tolgakurucay.cryptotolga.databinding.NavHeaderBinding
-import com.tolgakurucay.cryptotolga.model.Coin
-import com.tolgakurucay.cryptotolga.util.Constants
-import com.tolgakurucay.cryptotolga.viewmodel.FeedFragmentModel
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_feed.*
-import kotlinx.android.synthetic.main.nav_header.view.*
+import com.tolgakurucay.cryptotolga.view.FavoritesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -114,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             alertDialog.setPositiveButton("Evet"){a,b->
 
                 auth.signOut()
-                val intent=Intent(this@MainActivity,EntryActivity::class.java)
+                val intent=Intent(this@MainActivity, EntryActivity::class.java)
                 startActivity(intent)
                 this.finish()
 

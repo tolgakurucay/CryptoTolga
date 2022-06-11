@@ -1,29 +1,20 @@
 package com.tolgakurucay.cryptotolga.view
 
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.ViewModelStoreOwner
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.adapter.CoinListAdapter
-import com.tolgakurucay.cryptotolga.databinding.FragmentCoinBinding
 import com.tolgakurucay.cryptotolga.databinding.FragmentFeedBinding
-import com.tolgakurucay.cryptotolga.model.Coin
 import com.tolgakurucay.cryptotolga.util.Constants
+import com.tolgakurucay.cryptotolga.view.activities.EntryActivity
 import com.tolgakurucay.cryptotolga.viewmodel.FeedFragmentModel
 
 import kotlinx.android.synthetic.main.fragment_feed.*
@@ -62,7 +53,7 @@ class FeedFragment : Fragment() {
 
         val auth=FirebaseAuth.getInstance()
         if(auth.currentUser==null){
-            val intent= Intent(activity,EntryActivity::class.java)
+            val intent= Intent(activity, EntryActivity::class.java)
             startActivity(intent)
         }
 
@@ -172,7 +163,7 @@ class FeedFragment : Fragment() {
         viewModel.coins.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it?.let {
                 coinList.visibility=View.VISIBLE
-                //burda adapter içi doldurulacakw
+                //burda adapter içi doldurulacak
                 adapter.updateCoinList(it)
 
 

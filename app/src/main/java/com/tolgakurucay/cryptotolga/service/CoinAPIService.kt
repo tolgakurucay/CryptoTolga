@@ -21,9 +21,7 @@ class CoinAPIService {
         .build()
         .create(CoinApi::class.java)
 
-      fun getData(apiKey:String) : Single<List<Coin>>{
-        return api.getAll(apiKey)
-    }
+
 
       fun getSingleData(key : String, ids:String, currency:String ) : Single<List<Coin>>{
 
@@ -33,6 +31,11 @@ class CoinAPIService {
 
     fun getDataFilterByCurrency(key:String,currency:String) : Single<List<Coin>>{
         return api.getCryptoFilterByCurrency(key,currency)
+    }
+
+    fun getFavorites(key:String,currency: String,idList:String) : Single<List<Coin>>{
+        return api.getFavorites(key,idList,currency)
+
     }
 
 
