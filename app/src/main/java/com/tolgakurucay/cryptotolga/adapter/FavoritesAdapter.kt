@@ -10,6 +10,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.databinding.RecyclerViewRowBinding
 import com.tolgakurucay.cryptotolga.util.Constants
@@ -63,14 +64,19 @@ class FavoritesAdapter(val arrayList: ArrayList<Coin>,var navController: NavCont
 
 
 
-     /*   val action=FeedFragmentDirections.actionFeedFragmentToCoinFragment()
 
+
+
+        val action=FavoritesFragmentDirections.actionFavoritesFragmentToCoinFragment()
         action.setCoinId(v.coinName.text.toString())
         action.setCurrency(Constants.curr)
+        navController.navigate(action)
+
+
 
         Log.d("bilgi",v.coinName.text.toString()+"  "+Constants.curr)
 
-        navController.navigate(action)*/
+
 
 
 

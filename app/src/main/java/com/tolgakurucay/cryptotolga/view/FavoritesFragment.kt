@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -132,7 +133,7 @@ class FavoritesFragment : Fragment() {
         viewModel=ViewModelProvider(this).get(FavoritesFragmentModel::class.java)
         auth= FirebaseAuth.getInstance()
         binding= FragmentFavoritesBinding.bind(view)
-        adapter= FavoritesAdapter(arrayListOf(), NavController(this.requireContext()))
+        adapter= FavoritesAdapter(arrayListOf(),findNavController())
 
         binding.recyclerFavorites.layoutManager=LinearLayoutManager(this.requireContext())
         binding.recyclerFavorites.adapter=adapter
@@ -141,6 +142,7 @@ class FavoritesFragment : Fragment() {
 
 
     }
+
 
 
 }

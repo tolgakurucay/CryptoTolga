@@ -147,10 +147,10 @@ class LoginFragment : Fragment() {
     private fun mailTextChangeListener(){
         binding.mailEditText.addTextChangedListener{
             if (binding.mailEditText.text.toString()==""){
-                binding.textInputLayoutMail.helperText="Mail Gir"
+                binding.textInputLayoutMail.helperText="Mail Giriniz"
             }
             else if(Patterns.EMAIL_ADDRESS.matcher(binding.mailEditText.text.toString()).matches()!=true){
-                binding.textInputLayoutMail.helperText="Geçersiz"
+                binding.textInputLayoutMail.helperText="Geçersiz Mail"
             }
             else
             {
@@ -162,7 +162,7 @@ class LoginFragment : Fragment() {
     private fun passwordChangeListener(){
         binding.passwordEditText.addTextChangedListener {
             if(binding.passwordEditText.text.toString()==""){
-                binding.textInputLayoutPassword.helperText="Boş Şifre"
+                binding.textInputLayoutPassword.helperText="Şifre Giriniz"
             }
 
             else

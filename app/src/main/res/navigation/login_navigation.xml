@@ -12,10 +12,12 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment2_to_forgotPasswordFragment2"
-            app:destination="@id/forgotPasswordFragment2" />
+            app:destination="@id/forgotPasswordFragment2"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_loginFragment2_to_signupFragment2"
-            app:destination="@id/signupFragment2" />
+            app:destination="@id/signupFragment2"
+            app:enterAnim="@anim/nav_default_enter_anim" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment2"
@@ -24,7 +26,8 @@
         tools:layout="@layout/fragment_forgot_password" >
         <action
             android:id="@+id/action_forgotPasswordFragment2_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
+            app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment2"
@@ -33,6 +36,7 @@
         tools:layout="@layout/fragment_signup" >
         <action
             android:id="@+id/action_signupFragment2_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
+            app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
 </navigation>

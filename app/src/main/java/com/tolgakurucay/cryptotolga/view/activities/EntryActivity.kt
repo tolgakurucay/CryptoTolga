@@ -21,7 +21,7 @@ class EntryActivity : AppCompatActivity() {
         binding.fragmentContainerView.visibility=View.INVISIBLE
 
         val auth= FirebaseAuth.getInstance()
-        if(auth.currentUser!=null){
+        if(auth.currentUser!=null && auth.currentUser!!.isEmailVerified){
             val intent=Intent(this@EntryActivity, MainActivity::class.java)
             startActivity(intent)
         }

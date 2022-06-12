@@ -73,6 +73,8 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         app:helperText="E-Posta Giriniz"
+        android:saveEnabled="true"
+
         app:helperTextEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,19 +96,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-
         android:layout_marginEnd="32dp"
+        android:visibility="visible"
         app:helperText="Şifre Giriniz"
         app:helperTextEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMail"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
-
+            android:saveEnabled="true"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:hint="Şifre" />
