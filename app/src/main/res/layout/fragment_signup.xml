@@ -26,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        app:helperText="İsim Giriniz"
+        app:helperText="Enter Your Name"
         app:helperTextEnabled="true"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -38,7 +38,7 @@
             android:id="@+id/signupName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="İsim" />
+            android:hint="Name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -46,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        app:helperText="E-Posta Giriniz"
+        app:helperText="Enter a Mail"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         app:helperTextEnabled="true"
@@ -58,7 +58,7 @@
             android:id="@+id/signupMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-Posta"
+            android:hint="E-Mail"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,7 +69,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        app:helperText="Şifre Giriniz"
+        app:helperText="Enter a Password"
         app:helperTextEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
             android:id="@+id/signUpPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Şifre" />
+            android:hint="Password" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -90,7 +90,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        app:helperText="Şifreyi Tekrardan Giriniz"
+        app:helperText="Password Again"
         app:helperTextEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +101,7 @@
             android:id="@+id/signUpPasswordTry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Şifre Tekrar" />
+            android:hint="Password Again" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -109,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="ÜYE OL"
+        android:text="REGISTER"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,7 +121,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="@drawable/round_button"
-        android:text="Üye Ol"
+        android:text="Register"
         android:textColor="@color/buttonTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

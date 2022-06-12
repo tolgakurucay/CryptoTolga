@@ -9,12 +9,15 @@ import android.os.Looper
 import android.provider.ContactsContract
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -27,12 +30,19 @@ import com.tolgakurucay.cryptotolga.databinding.ActivityMainBinding
 import com.tolgakurucay.cryptotolga.databinding.NavHeaderBinding
 import com.tolgakurucay.cryptotolga.model.NavigationViewProfile
 import com.tolgakurucay.cryptotolga.view.*
+import com.tolgakurucay.cryptotolga.viewmodel.MainActivityModel
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toggle:ActionBarDrawerToggle
     private lateinit var binding:ActivityMainBinding
+    private lateinit var viewModel:MainActivityModel
+
+    private lateinit var header:View
+    private lateinit var textMail:TextView
+    private lateinit var textName:TextView
 
 
 
@@ -44,10 +54,20 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel=ViewModelProvider(this).get(MainActivityModel::class.java)
+        setup()
 
-        /*val nav=NavigationViewProfile("sad","asadsdasd","asdasda")
-        val dataBinding:NavHeaderBinding=DataBindingUtil.setContentView(this@MainActivity,R.layout.nav_header)
-        dataBinding.navigationViewProfile=nav*/
+
+        viewModel.getMailAndName()
+
+
+
+
+
+
+
+
+
 
 
 
@@ -89,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+    observeLiveData()
 
 
         }
@@ -109,9 +129,9 @@ class MainActivity : AppCompatActivity() {
 
             val alertDialog= AlertDialog.Builder(this)
 
-            alertDialog.setTitle("Çıkış İşlemi")
-            alertDialog.setMessage("Çıkış Yapmak İstediğinize Emin Misiniz?")
-            alertDialog.setPositiveButton("Evet"){a,b->
+            alertDialog.setTitle("Exit")
+            alertDialog.setMessage("Are You Sure You Want To Exit?")
+            alertDialog.setPositiveButton("Yes"){a,b->
 
                 auth.signOut()
                 val intent=Intent(this@MainActivity, EntryActivity::class.java)
@@ -120,7 +140,7 @@ class MainActivity : AppCompatActivity() {
 
 
             }
-            alertDialog.setNegativeButton("Hayır"){_,_->
+            alertDialog.setNegativeButton("No"){_,_->
                 //nothing
 
             }
@@ -182,6 +202,31 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    private fun setup(){
+
+        header=binding.navView.getHeaderView(0)
+        textName=header.findViewById<TextView>(R.id.nameTextView)
+        textMail=header.findViewById<TextView>(R.id.mailTextView)
+
+
+
+
+    }
+
+    private fun observeLiveData(){
+
+        viewModel.mailAndName.observe(this, Observer {
+            it?.let {
+                textName.setText(it[0])
+                textMail.setText(it[1])
+            }
+        })
+
+
+
+    }
+
 
 
 

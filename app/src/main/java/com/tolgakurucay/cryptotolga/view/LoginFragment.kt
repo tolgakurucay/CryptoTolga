@@ -64,8 +64,8 @@ class LoginFragment : Fragment() {
 
         viewModel=ViewModelProvider(this).get(LoginFragmentModel::class.java)
 
-        binding.textInputLayoutMail.helperText="Mail Giriniz"
-        binding.textInputLayoutPassword.helperText="Şifre Giriniz"
+        binding.textInputLayoutMail.helperText="Enter a Mail"
+        binding.textInputLayoutPassword.helperText="Enter a Password"
 
 
 
@@ -91,7 +91,7 @@ class LoginFragment : Fragment() {
             }
             else
             {
-                Toast.makeText(this.requireContext(),"Girdiğiniz Bilgileri Kontrol Ediniz",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.requireContext(),"Check The Information You Have Entered",Toast.LENGTH_SHORT).show()
                 Log.d("bilgi","Validasyon Hatalı")
             }
 
@@ -121,7 +121,7 @@ class LoginFragment : Fragment() {
                        if(!auth.currentUser!!.isEmailVerified){
                            Log.d("bilgi","Email doğrulanmadı")
                           //e-mail doğrulansın
-                           Toast.makeText(this@LoginFragment.requireContext(),"Lütfen Mail Adresinize Gönderilen Kodu Doğrulayın ",Toast.LENGTH_LONG).show()
+                           Toast.makeText(this@LoginFragment.requireContext(),"Please Verify The Code Sent To Your Email Address ",Toast.LENGTH_LONG).show()
 
                        }
                    else
@@ -136,8 +136,8 @@ class LoginFragment : Fragment() {
                }
                else
                {
-                   Log.d("bilgi","Mail ve-veya Şifre Hatalı")
-                   Toast.makeText(this@LoginFragment.context,"Mail ve-veya Şifre Hatalı",Toast.LENGTH_SHORT).show()
+                   Log.d("bilgi","Invalid Mail and/or Password")
+                   Toast.makeText(this@LoginFragment.context,"Invalid Mail and/or Password",Toast.LENGTH_SHORT).show()
                }
 
            }
@@ -147,10 +147,10 @@ class LoginFragment : Fragment() {
     private fun mailTextChangeListener(){
         binding.mailEditText.addTextChangedListener{
             if (binding.mailEditText.text.toString()==""){
-                binding.textInputLayoutMail.helperText="Mail Giriniz"
+                binding.textInputLayoutMail.helperText="Enter Mail"
             }
             else if(Patterns.EMAIL_ADDRESS.matcher(binding.mailEditText.text.toString()).matches()!=true){
-                binding.textInputLayoutMail.helperText="Geçersiz Mail"
+                binding.textInputLayoutMail.helperText="Invalid Mail"
             }
             else
             {
@@ -162,7 +162,7 @@ class LoginFragment : Fragment() {
     private fun passwordChangeListener(){
         binding.passwordEditText.addTextChangedListener {
             if(binding.passwordEditText.text.toString()==""){
-                binding.textInputLayoutPassword.helperText="Şifre Giriniz"
+                binding.textInputLayoutPassword.helperText="Enter Password"
             }
 
             else

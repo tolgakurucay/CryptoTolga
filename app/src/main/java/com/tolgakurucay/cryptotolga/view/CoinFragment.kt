@@ -68,6 +68,11 @@ class CoinFragment : Fragment() {
 
 
 
+        activity?.let {
+            activity?.let {
+                it.setTitle(id)
+            }
+        }
 
         language(Constants.curr)
 
@@ -107,7 +112,7 @@ class CoinFragment : Fragment() {
     }
 
     private fun language(languageCode:String){
-        if(languageCode=="TRY")
+        /*if(languageCode=="TRY")
         {
             dataBinding.coinCodeTextView.setText(R.string.codeTR)
             dataBinding.coinNameTextView.setText(R.string.nameTR)
@@ -120,7 +125,7 @@ class CoinFragment : Fragment() {
             dataBinding.buttonProfitAndLoss.setText(R.string.profitAndLossTR)
         }
         else
-        {
+        {*/
             dataBinding.coinCodeTextView.setText(R.string.codeEN)
             dataBinding.coinNameTextView.setText(R.string.nameEN)
             dataBinding.coinMarketCapTextView.setText(R.string.marketCapEN)
@@ -130,7 +135,7 @@ class CoinFragment : Fragment() {
             dataBinding.coinDateTextView.setText(R.string.dateEN)
             dataBinding.buttonFavorites.setText(R.string.addFavoritesEN)
             dataBinding.buttonProfitAndLoss.setText(R.string.profitAndLossEN)
-        }
+        //}
     }
 
     private fun observeLiveData(){
@@ -142,12 +147,12 @@ class CoinFragment : Fragment() {
                 if(it){
                     //db'de var
                     Log.d("bilgi",it.toString())
-                    dataBinding.buttonFavorites.setText("Favorilerden Kaldır")
+                    dataBinding.buttonFavorites.setText("Remove From Favorites")
                 }
                 else
                 {
                     Log.d("bilgi",it.toString())
-                    dataBinding.buttonFavorites.setText("Favorilere Ekle")
+                    dataBinding.buttonFavorites.setText("Add To Favorites")
                 }
             }
         })
@@ -156,13 +161,13 @@ class CoinFragment : Fragment() {
             it?.let {
                 if(it){
                     Log.d("bilgi","Favorilere Eklendi")
-                    dataBinding.buttonFavorites.setText("Favorilerden Kaldır")
+                    dataBinding.buttonFavorites.setText("Remove from Favorites")
 
                 }
                 else
                 {
                     Log.d("bilgi","Favorilerden silindi")
-                    dataBinding.buttonFavorites.setText("Favorilere Ekle")
+                    dataBinding.buttonFavorites.setText("Add to Favorites")
                 }
             }
         })

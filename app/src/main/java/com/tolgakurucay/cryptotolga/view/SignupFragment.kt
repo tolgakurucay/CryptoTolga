@@ -49,10 +49,10 @@ class SignupFragment : Fragment() {
 
         viewModel=ViewModelProvider(this).get(SignupFragmentModel::class.java)
 
-        binding.layoutMail.helperText="Mail Giriniz"
-        binding.layoutName.helperText="İsim Giriniz"
-        binding.layoutPassword.helperText="Şifre Giriniz"
-        binding.layoutPasswordTry.helperText="Şifreyi Tekrardan Giriniz"
+        binding.layoutMail.helperText="Enter a Mail"
+        binding.layoutName.helperText="Enter a Name"
+        binding.layoutPassword.helperText="Enter a Password"
+        binding.layoutPasswordTry.helperText="Enter Password Again"
 
 
 
@@ -63,7 +63,7 @@ class SignupFragment : Fragment() {
            }
             else
            {
-               Toast.makeText(this.context,"Lütfen Gerekli Bilgileri Düzgün Bir Biçimde Giriniz",Toast.LENGTH_SHORT).show()
+               Toast.makeText(this.context,"Check The Information You Have Entered",Toast.LENGTH_SHORT).show()
 
            }
         }
@@ -84,9 +84,9 @@ class SignupFragment : Fragment() {
 
                     val alertDialog= AlertDialog.Builder(this@SignupFragment.requireContext())
 
-                    alertDialog.setTitle("Kayıt Başarılı")
-                    alertDialog.setMessage("Mail Adresinize Gelen Doğrulama Linkine Tıkladıktan Sonra Uygulamaya Giriş Yapabilirsiniz")
-                    alertDialog.setPositiveButton("Evet"){a,b->
+                    alertDialog.setTitle("Register Successful")
+                    alertDialog.setMessage("You can login to the application after clicking the verification link that comes to your e-mail address.")
+                    alertDialog.setPositiveButton("Yes"){a,b->
                         val action=SignupFragmentDirections.actionSignupFragment2ToLoginFragment2()
                         Navigation.findNavController(this@SignupFragment.requireView()).navigate(action)
 
@@ -103,7 +103,7 @@ class SignupFragment : Fragment() {
                 else
                 {
                     Log.d("bilgi","Başarısız")
-                    Toast.makeText(this@SignupFragment.requireContext(),"Kayıt Başarısız\nBu Mail Adresine Kayıtlı Bir Hesap Olabilir",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignupFragment.requireContext(),"Register Failed\nCould Be An Account Registered With This Email Address",Toast.LENGTH_SHORT).show()
                 }
             }
         })
@@ -128,7 +128,7 @@ class SignupFragment : Fragment() {
 
         binding.signupName.addTextChangedListener {
             if(binding.signupName.text.toString().isEmpty()){
-                binding.layoutName.helperText="İsim Giriniz"
+                binding.layoutName.helperText="Enter a Name"
             }
             else
             {
@@ -138,10 +138,10 @@ class SignupFragment : Fragment() {
         }
         binding.signupMail.addTextChangedListener {
             if (binding.signupMail.text.toString()==""){
-                binding.layoutMail.helperText="Mail Gir"
+                binding.layoutMail.helperText="Enter a Mail"
             }
             else if(Patterns.EMAIL_ADDRESS.matcher(binding.signupMail.text.toString()).matches()!=true){
-                binding.layoutMail.helperText="Geçersiz"
+                binding.layoutMail.helperText="Invalid Mail"
             }
             else
             {
@@ -151,10 +151,10 @@ class SignupFragment : Fragment() {
         }
         binding.signUpPassword.addTextChangedListener {
             if(binding.signUpPassword.text.toString()==""){
-                binding.layoutPassword.helperText="Boş Şifre"
+                binding.layoutPassword.helperText="Enter a Password"
             }
             else if(binding.signUpPassword.text.toString().length<8){
-                binding.layoutPassword.helperText="En Az 8 Karakter"
+                binding.layoutPassword.helperText="Minimum 8 Character"
             }
 
             else
@@ -165,10 +165,10 @@ class SignupFragment : Fragment() {
         }
         binding.signUpPasswordTry.addTextChangedListener {
             if(binding.signUpPasswordTry.text.toString()==""){
-                binding.layoutPasswordTry.helperText="Boş Şifre"
+                binding.layoutPasswordTry.helperText="Enter a Password"
             }
             else if(binding.signUpPasswordTry.text.toString().length<8){
-                binding.layoutPasswordTry.helperText="En Az 8 Karakter"
+                binding.layoutPasswordTry.helperText="Minimum 8 Character"
             }
 
 

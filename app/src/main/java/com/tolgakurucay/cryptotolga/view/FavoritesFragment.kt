@@ -16,6 +16,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tolgakurucay.cryptotolga.R
@@ -31,6 +32,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class FavoritesFragment : Fragment() {
@@ -76,6 +78,10 @@ class FavoritesFragment : Fragment() {
         else
         {
 
+          activity?.let {
+              it.setTitle("Favorites")
+          }
+
 
             viewModel.getFavoriteList(Constants.curr)
 
@@ -104,10 +110,20 @@ class FavoritesFragment : Fragment() {
     private fun observeLiveData() {
         viewModel.favoriteList.observe(viewLifecycleOwner, Observer {
             it?.let { list->
-                adapter.updateCoinList(list)
-                for(item in list){
-                    Log.d("bilgi",item.toString())
+                if(list.isEmpty()){
+                    Log.d("bilşgi","boşş")
+                    binding.textViewEmpty.visibility=View.VISIBLE
                 }
+                else
+                {
+                    for(item in list){
+                        Log.d("bilgi",item.toString())
+                    }
+                    adapter.updateCoinList(list)
+                    binding.textViewEmpty.visibility=View.INVISIBLE
+
+                }
+
 
 
             }
@@ -134,6 +150,7 @@ class FavoritesFragment : Fragment() {
         auth= FirebaseAuth.getInstance()
         binding= FragmentFavoritesBinding.bind(view)
         adapter= FavoritesAdapter(arrayListOf(),findNavController())
+        binding.textViewEmpty.visibility=View.INVISIBLE
 
         binding.recyclerFavorites.layoutManager=LinearLayoutManager(this.requireContext())
         binding.recyclerFavorites.adapter=adapter

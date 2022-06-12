@@ -57,6 +57,10 @@ class FeedFragment : Fragment() {
             startActivity(intent)
         }
 
+        activity?.let {
+            it.setTitle("Crypto Tolga")
+        }
+
 
         binding= FragmentFeedBinding.bind(view)
 
