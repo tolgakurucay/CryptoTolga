@@ -11,6 +11,7 @@
             android:icon="@drawable/dollar"
 
 
+
             />
 
         <item
@@ -19,12 +20,14 @@
             android:icon="@drawable/turkish_lira"
 
 
+
+
             />
         <item
             android:title="Euro"
             android:id="@+id/euro"
             android:icon="@drawable/euro"
-
+           
 
             >
 

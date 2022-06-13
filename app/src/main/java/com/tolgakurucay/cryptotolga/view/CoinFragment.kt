@@ -69,9 +69,7 @@ class CoinFragment : Fragment() {
 
 
         activity?.let {
-            activity?.let {
-                it.setTitle(id)
-            }
+
         }
 
         language(Constants.curr)

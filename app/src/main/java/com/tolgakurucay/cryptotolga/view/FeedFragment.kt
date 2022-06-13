@@ -2,6 +2,7 @@ package com.tolgakurucay.cryptotolga.view
 
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import androidx.core.widget.addTextChangedListener
@@ -57,9 +58,7 @@ class FeedFragment : Fragment() {
             startActivity(intent)
         }
 
-        activity?.let {
-            it.setTitle("Crypto Tolga")
-        }
+
 
 
         binding= FragmentFeedBinding.bind(view)
@@ -96,8 +95,15 @@ class FeedFragment : Fragment() {
                 R.id.euro->euro()
 
             }
+
             true
+
         }
+
+
+
+
+
 
 
 
@@ -178,7 +184,7 @@ class FeedFragment : Fragment() {
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             it?.let {
-                if(it==true){
+                if(it){
                     coinError.visibility=View.VISIBLE
                     coinList.visibility=View.GONE
                     progressBar.visibility=View.GONE
@@ -186,6 +192,9 @@ class FeedFragment : Fragment() {
                 else
                 {
                     coinError.visibility=View.GONE
+                    coinList.visibility=View.VISIBLE
+                    progressBar.visibility=View.GONE
+
                 }
             }
         })
@@ -201,6 +210,7 @@ class FeedFragment : Fragment() {
                 else
                 {
                     progressBar.visibility=View.GONE
+
                 }
             }
 

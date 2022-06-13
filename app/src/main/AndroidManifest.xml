@@ -10,9 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CryptoTolga">
+        android:theme="@style/CustomActionBar">
         <activity
-            android:name=".view.activities.EntryActivity" android:theme="@style/MyAppTheme.NoActionBar" android:noHistory="true"
+            android:name=".view.activities.EntryActivity"  android:noHistory="true"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".view.activities.MainActivity"
+            android:name=".view.activities.MainActivity"  android:label=""
             android:exported="true">
 
         </activity>

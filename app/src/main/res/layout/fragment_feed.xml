@@ -70,26 +70,31 @@
 
             <TextView
                 android:id="@+id/coinError"
-                android:layout_width="40dp"
-                android:layout_height="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/error"
-                app:layout_constraintBottom_toBottomOf="@+id/coinList"
-                app:layout_constraintEnd_toEndOf="@+id/coinList"
-                app:layout_constraintStart_toStartOf="@+id/coinList"
-                app:layout_constraintTop_toTopOf="@+id/coinList" />
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottomNav"
                 android:focusable="true"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
+                android:background="#000000"
+
                 app:itemTextColor="@color/white"
+                app:itemIconTint="@color/white"
+
                 app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
 
                 app:layout_constraintEnd_toEndOf="@id/constraintLayout"
 
-                app:layout_constraintHorizontal_bias="0.0"
+
                 app:layout_constraintStart_toStartOf="@id/constraintLayout"
                 app:menu="@menu/feed_menu">
 

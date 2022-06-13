@@ -7,6 +7,7 @@
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable-anydpi/euro_asset.xml" value="0.196" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.128" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/add_person_image.xml" value="0.346" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/app_bar.xml" value="0.13" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/gradient_backcolor.xml" value="0.1195" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/gradient_background.xml" value="0.296" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/gradient_green_background.xml" value="0.3675" />
@@ -19,6 +20,8 @@
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/round2_button.xml" value="0.3675" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/round_button.xml" value="0.3675" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/side_nav_bar.xml" value="0.3535" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/star.xml" value="0.3675" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/drawable/tool_bar_style.xml" value="0.3675" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout-mdpi/fragment_login.xml" value="0.5" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout-mdpi/fragment_signup.xml" value="0.75" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout-normal/fragment_login.xml" value="0.2552083333333333" />
@@ -27,9 +30,11 @@
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout-w936dp/activity_login.xml" value="0.2387295081967213" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/activity_entry.xml" value="0.75" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/activity_login.xml" value="0.75" />
-        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/activity_main.xml" value="0.6916666666666667" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/appbar.xml" value="0.67" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/content_login.xml" value="0.8243559718969555" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/content_main.xml" value="0.8243559718969555" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/custom_action_bar.xml" value="0.75" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/fragment_coin.xml" value="0.75" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/fragment_favorites.xml" value="0.8243559718969555" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/fragment_feed.xml" value="0.67" />
@@ -40,6 +45,7 @@
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/fragment_signup.xml" value="0.6820809248554913" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/nav_header.xml" value="0.6694444444444444" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/layout/recycler_view_row.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/menu-v26/feed_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/menu/drawer_menu.xml" value="0.75" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/menu/feed_menu.xml" value="0.67" />
         <entry key="..\:/Users/Tolga/AndroidStudioProjects/CryptoTolga/app/src/main/res/menu/feed_menue.xml" value="0.36666666666666664" />

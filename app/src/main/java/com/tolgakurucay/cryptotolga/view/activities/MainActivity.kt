@@ -1,37 +1,36 @@
 package com.tolgakurucay.cryptotolga.view.activities
 
+import android.app.ActionBar
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.ContactsContract
+import android.provider.CalendarContract
 import android.util.Log
+import android.util.TypedValue
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.core.view.GravityCompat
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import androidx.core.view.LayoutInflaterCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.databinding.ActivityMainBinding
-import com.tolgakurucay.cryptotolga.databinding.NavHeaderBinding
-import com.tolgakurucay.cryptotolga.model.NavigationViewProfile
 import com.tolgakurucay.cryptotolga.view.*
 import com.tolgakurucay.cryptotolga.viewmodel.MainActivityModel
-import de.hdodenhof.circleimageview.CircleImageView
+import java.io.InputStream
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,9 +53,20 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        actionBar?.let {
+            it.setDisplayShowCustomEnabled(true)
+
+
+
+
+        }
+        val toolbar=findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+
+
         viewModel=ViewModelProvider(this).get(MainActivityModel::class.java)
         setup()
-
 
         viewModel.getMailAndName()
 
@@ -64,30 +74,22 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        toggle= ActionBarDrawerToggle(this,binding.drawerLayout,R.string.open,R.string.close)
+        toggle= ActionBarDrawerToggle(this,binding.drawerLayout,toolbar,R.string.open,R.string.close)
 
         binding.drawerLayout.addDrawerListener(toggle)
+
+
         toggle.syncState()
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toggle.isDrawerIndicatorEnabled=true
-        toggle.isDrawerSlideAnimationEnabled=true
+
+
+
+
+
+
+
+
+
 
 
 
@@ -99,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.logout->signOut()
                 R.id.turkish->Toast.makeText(applicationContext,"Yapım Aşamasında",Toast.LENGTH_SHORT).show()
-                R.id.favorites->replaceFragment(FeedFragmentDirections.actionFeedFragmentToFavoritesFragment())
+                R.id.favorites->replaceFragment()
             }
             binding.drawerLayout.closeDrawer(GravityCompat.START)
             true
@@ -155,13 +157,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(navDirections: NavDirections){
+    private fun replaceFragment(){
+
 
 
 
         val navHost=supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController=navHost.navController
-        navController.navigate(navDirections)
+
+        navController.currentDestination?.let {
+            if(navController.currentDestination!!.displayName.equals("com.tolgakurucay.cryptotolga:id/coinFragment")){
+                navController.navigate(CoinFragmentDirections.actionCoinFragmentToFavoritesFragment())
+            }
+            else if(navController.currentDestination!!.displayName.equals("com.tolgakurucay.cryptotolga:id/feedFragment")){
+                navController.navigate(FeedFragmentDirections.actionFeedFragmentToFavoritesFragment())
+            }
+        }
+
+
 
     }var doubleBackPress=false
 
@@ -226,6 +239,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 
 

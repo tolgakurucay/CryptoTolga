@@ -13,10 +13,10 @@ android {
 
     defaultConfig {
         applicationId "com.tolgakurucay.cryptotolga"
-        minSdk 23
+        minSdk 27
         targetSdk 31
-        versionCode 6
-        versionName "3.0"
+        versionCode 7
+        versionName "7.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
