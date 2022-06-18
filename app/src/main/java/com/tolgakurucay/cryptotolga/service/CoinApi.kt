@@ -17,11 +17,8 @@ interface CoinApi {
     //https://api.nomics.com/v1/currencies/ticker?key=2f10fb4972dc05c2ccc090f70b02bf49719edfba&currency=TRY
     //2f10fb4972dc05c2ccc090f70b02bf49719edfba
 
-    @GET("currencies/ticker")
-       fun getAll(
-        @Query("key") key : String,
 
-     ) : Single<List<Coin>>
+
 
 
 

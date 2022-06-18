@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">CryptoTolga</string>
+    <string name="invalid_username">Geçersiz Kullanıcı Adı</string>
+    <string name="invalid_password">Geçersiz Şifre</string>
+    <string name="error">Çok Fazla İstek Atıldı</string>
+    <string name="title_activity_login">Giriş Yap</string>
+    <string name="prompt_email">E-Posta</string>
+    <string name="prompt_password">Şifre</string>
+    <string name="action_sign_in">Giriş Yap veya Üye Ol</string>
+    <string name="action_sign_in_short">Giriş Yap</string>
+    <string name="welcome">Hoşgeldiniz</string>
+    <string name="login_failed">Giriş Başarısız</string>
+    <string name="codeEN" translatable="false">Kod</string>
+    <string name="nameEN">İsim</string>
+    <string name="marketCapEN">Piyasa Değeri</string>
+    <string name="priceEN">Fiyatı</string>
+    <string name="statusEN">Durumu</string>
+    <string name="rankEN">Sıralaması</string>
+    <string name="dateEN">Tarih</string>
+    <string name="addFavoritesEN">Favorilere Ekle</string>
+    <string name="profitAndLossEN">Kar-Zarar Ekle</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="first_fragment_label">İlk Fragment</string>
+    <string name="second_fragment_label">İkinci Fragment</string>
+    <string name="next">Sonraki</string>
+    <string name="previous">Önceki</string>
+    <string name="dollar">Dolar</string>
+    <string name="turkishLira">Türk Lirası</string>
+    <string name="euro">Euro</string>
+    <string name="languages">Diller</string>
+    <string name="favorites">Favoriler</string>
+    <string name="logout">Çıkış Yap</string>
+    <string name="profile">Profil</string>
+    <string name="turkish">Türkçe</string>
+    <string name="english">İngilizce</string>
+    <string name="exit">Çıkış Yap</string>
+    <string name="exitDesc">Çıkış Yapmak İstediğinize Emin Misiniz?</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+    <string name="register">Kayıt Ol</string>
+    <string name="loginButton">Giriş Yap</string>
+    <string name="loginLogo">GİRİŞ YAP</string>
+    <string name="enteremail">E-Posta Giriniz</string>
+    <string name="email">E-Posta</string>
+    <string name="enterpassword">Şifre Giriniz</string>
+    <string name="password">Şifre</string>
+    <string name="notamember">Üye Değil Misin?</string>
+    <string name="forgetpassword">Şifreni mi Unuttun?</string>
+    <string name="enteryourname">İsminizi Giriniz</string>
+    <string name="name">İsim</string>
+    <string name="enterpasswordagain">Şifreyi Tekrardan Giriniz</string>
+    <string name="registerlogo">KAYIT OL</string>
+    <string name="reset_my_password">Şifremi Sıfırla</string>
+    <string name="checkInformation">Girdiğiniz Bilgileri Kontrol Ediniz</string>
+    <string name="register_successful">Kayıt Başarılı</string>
+    <string name="verification_link">E-Posta adresinize gelen linki onayladıktan sonra uygulamaya giriş yapabilirsiniz</string>
+    <string name="register_failed">Kayıt Başarısız</string>
+    <string name="could_be_account">Bu Mail Adresiyle Kayıtlı Bir Kullanıcı Olabilir</string>
+
+    <string name="invalid_email">Geçersiz E-Posta</string>
+    <string name="minimum_8_characters">En Az 8 Karakter</string>
+    <string name="email_didnt_verified">E-Posta Doğrulanmadı</string>
+    <string name="codethatsendemail">E-Posta Adresinize Gönderilen Linki Onaylayın</string>
+    <string name="invalid_mail_or_password">Geçersiz Mail ve/veya Şifre</string>
+    <string name="password_reset_link">Şifre Sıfırlama Linki E-Posta Adresinize Gönderildi</string>
+    <string name="there_isnt_email">Kayıt Olmuş Böyle Bir E-Posta Hesabı Yok</string>
+
+
+</resources>

@@ -1,36 +1,29 @@
 package com.tolgakurucay.cryptotolga.view.activities
 
-import android.app.ActionBar
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.CalendarContract
+import android.util.DisplayMetrics
 import android.util.Log
-import android.util.TypedValue
 import android.view.*
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.core.view.GravityCompat
-import androidx.core.view.LayoutInflaterCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.databinding.ActivityMainBinding
 import com.tolgakurucay.cryptotolga.view.*
 import com.tolgakurucay.cryptotolga.viewmodel.MainActivityModel
-import java.io.InputStream
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -100,7 +93,8 @@ class MainActivity : AppCompatActivity() {
             when(menuItem.itemId){
 
                 R.id.logout->signOut()
-                R.id.turkish->Toast.makeText(applicationContext,"Yapım Aşamasında",Toast.LENGTH_SHORT).show()
+                R.id.turkish->setLocale("tr")
+                R.id.english->setLocale("en")
                 R.id.favorites->replaceFragment()
             }
             binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -115,6 +109,16 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+    fun setLocale(lang: String?) {
+        val myLocale = Locale(lang)
+        val res: Resources = resources
+        val dm: DisplayMetrics = res.getDisplayMetrics()
+        val conf: Configuration = res.getConfiguration()
+        conf.locale = myLocale
+        res.updateConfiguration(conf, dm)
+        val refresh = Intent(this, MainActivity::class.java)
+        startActivity(refresh)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
@@ -131,9 +135,9 @@ class MainActivity : AppCompatActivity() {
 
             val alertDialog= AlertDialog.Builder(this)
 
-            alertDialog.setTitle("Exit")
-            alertDialog.setMessage("Are You Sure You Want To Exit?")
-            alertDialog.setPositiveButton("Yes"){a,b->
+            alertDialog.setTitle(R.string.exit)
+            alertDialog.setMessage(R.string.exitDesc)
+            alertDialog.setPositiveButton(R.string.yes){a,b->
 
                 auth.signOut()
                 val intent=Intent(this@MainActivity, EntryActivity::class.java)
@@ -142,7 +146,7 @@ class MainActivity : AppCompatActivity() {
 
 
             }
-            alertDialog.setNegativeButton("No"){_,_->
+            alertDialog.setNegativeButton(R.string.no){_,_->
                 //nothing
 
             }

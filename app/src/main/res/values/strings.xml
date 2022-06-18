@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">CryptoTolga</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -12,23 +11,14 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="error">Too Many Request</string>
-    <string name="codeTR">Kod</string>
     <string name="codeEN">Code</string>
-    <string name="nameTR">İsim</string>
     <string name="nameEN">Name</string>
-    <string name="marketCapTR">Piyasa Değeri</string>
     <string name="marketCapEN">Market Cap</string>
-    <string name="priceTR">Fiyat</string>
     <string name="priceEN">Price</string>
-    <string name="statusTR">Durum</string>
     <string name="statusEN">Status</string>
-    <string name="rankTR">Sıralama</string>
     <string name="rankEN">Rank</string>
-    <string name="dateTR">Tarih</string>
     <string name="dateEN">Date</string>
-    <string name="addFavoritesTR">Favorilere Ekle</string>
     <string name="addFavoritesEN">Add Favorites</string>
-    <string name="profitAndLossTR">Kar Zarar Ekle</string>
     <string name="profitAndLossEN">Add Stop and Loss</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
@@ -37,9 +27,45 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="dollar">Dollar</string>
+    <string name="turkishLira">Turkish Lira</string>
+    <string name="euro">Euro</string>
+    <string name="languages">Languages</string>
+    <string name="favorites">Favorites</string>
+    <string name="logout">Log Out</string>
+    <string name="profile">Profile</string>
+    <string name="turkish">Turkish</string>
+    <string name="english">English</string>
+    <string name="exit">Exit</string>
+    <string name="exitDesc">Are You Sure You Want To Exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="register">Register</string>
+    <string name="loginButton">Log In</string>
+    <string name="loginLogo">LOG IN</string>
+    <string name="enteremail">Enter E-Mail</string>
+    <string name="email">E-Mail</string>
+    <string name="enterpassword">Enter Password</string>
+    <string name="password">Password</string>
+    <string name="notamember">Not A Member?</string>
+    <string name="forgetpassword">Forget Password?</string>
+    <string name="enteryourname">Enter your Name</string>
+    <string name="name">Name</string>
+    <string name="enterpasswordagain">Enter Password Again</string>
+    <string name="registerlogo">REGISTER</string>
+    <string name="reset_my_password">Reset My Password</string>
+    <string name="checkInformation">Check The Information You Have Entered</string>
+    <string name="register_successful">Register Successful</string>
+    <string name="verification_link">You can login to the application after clicking the verification link that comes to your e-mail address</string>
+    <string name="register_failed">Register Failed</string>
+    <string name="invalid_email">Invalid E-Mail</string>
+    <string name="could_be_account">Could be an account used this e-mail</string>
+    <string name="minimum_8_characters">Minimum 8 Characters</string>
+    <string name="email_didnt_verified">E-Mail Did Not Verified</string>
+    <string name="codethatsendemail">Please Verify The Code Sent To Your Email Address</string>
+    <string name="invalid_mail_or_password">Invalid Mail and/or Password</string>
+    <string name="password_reset_link">Password Reset Link Sent To Email!</string>
+    <string name="there_isnt_email">There is No Account Registered To This Email Address</string>
 
 
 </resources>

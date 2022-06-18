@@ -6,7 +6,7 @@
     >
     <group>
 
-        <item android:title="Dollar"
+        <item android:title="@string/dollar"
             android:id="@+id/dollar"
             android:icon="@drawable/dollar"
 
@@ -15,7 +15,7 @@
             />
 
         <item
-            android:title="Turkish Lira"
+            android:title="@string/turkishLira"
             android:id="@+id/turkish_lira"
             android:icon="@drawable/turkish_lira"
 
@@ -24,7 +24,7 @@
 
             />
         <item
-            android:title="Euro"
+            android:title="@string/euro"
             android:id="@+id/euro"
             android:icon="@drawable/euro"
            

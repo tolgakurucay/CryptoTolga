@@ -60,33 +60,6 @@ class FeedFragmentModel(application: Application) : BaseViewModel(application) {
 
     }
 
-    fun getFavorites(language:String,apiKey:String){
-        progressBar.value=true
-        disposable.add(
-
-
-            coinApiService.getDataFilterByCurrency(apiKey,language)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSingleObserver<List<Coin>>(){
-                    override fun onSuccess(t: List<Coin>) {
-                        coins.value=t
-                        storeInSQLite(t)
-                        println(t.size)
-                        progressBar.value=false
-                    }
-
-                    override fun onError(e: Throwable) {
-                        error.value=true
-                        e.printStackTrace()
-                        progressBar.value=false
-                    }
-
-                })
-
-        )
-
-    }
 
 
 

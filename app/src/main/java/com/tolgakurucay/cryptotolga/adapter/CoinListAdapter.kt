@@ -53,7 +53,7 @@ class CoinListAdapter(val arrayList: ArrayList<Coin>) :
     fun updateCoinList(newCoinList: List<Coin>) {
         arrayList.clear()
         arrayList.addAll(newCoinList)
-        notifyDataSetChanged()
+       notifyDataSetChanged()
 
     }
 

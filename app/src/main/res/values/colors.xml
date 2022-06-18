@@ -10,4 +10,5 @@
     <color name="gold">#9E9D24</color>
     <color name="loginBackground">#69946A</color>
     <color name="buttonTextColor">#BCC9AD</color>
+    <color name="entryBackgroundColor">#01002A</color>
 </resources>

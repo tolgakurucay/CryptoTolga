@@ -33,12 +33,7 @@ class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth= FirebaseAuth.getInstance()
-        if(auth.currentUser!=null && auth.currentUser!!.isEmailVerified){
 
-
-            val intent=Intent(activity, MainActivity::class.java)
-            startActivity(intent)
-        }
 
     }
 
@@ -64,8 +59,8 @@ class LoginFragment : Fragment() {
 
         viewModel=ViewModelProvider(this).get(LoginFragmentModel::class.java)
 
-        binding.textInputLayoutMail.helperText="Enter a Mail"
-        binding.textInputLayoutPassword.helperText="Enter a Password"
+        binding.textInputLayoutMail.helperText=getString(R.string.enteremail)
+        binding.textInputLayoutPassword.helperText=getString(R.string.enterpassword)
 
 
 
@@ -91,7 +86,7 @@ class LoginFragment : Fragment() {
             }
             else
             {
-                Toast.makeText(this.requireContext(),"Check The Information You Have Entered",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.requireContext(),getString(R.string.checkInformation),Toast.LENGTH_LONG).show()
                 Log.d("bilgi","Validasyon Hatalı")
             }
 
@@ -119,9 +114,9 @@ class LoginFragment : Fragment() {
                if(it){
                    ///////
                        if(!auth.currentUser!!.isEmailVerified){
-                           Log.d("bilgi","Email doğrulanmadı")
+                           Log.d("bilgi",getString(R.string.email_didnt_verified))
                           //e-mail doğrulansın
-                           Toast.makeText(this@LoginFragment.requireContext(),"Please Verify The Code Sent To Your Email Address ",Toast.LENGTH_LONG).show()
+                           Toast.makeText(this@LoginFragment.requireContext(),getString(R.string.codethatsendemail),Toast.LENGTH_LONG).show()
 
                        }
                    else
@@ -137,7 +132,7 @@ class LoginFragment : Fragment() {
                else
                {
                    Log.d("bilgi","Invalid Mail and/or Password")
-                   Toast.makeText(this@LoginFragment.context,"Invalid Mail and/or Password",Toast.LENGTH_SHORT).show()
+                   Toast.makeText(this@LoginFragment.context,getString(R.string.invalid_mail_or_password),Toast.LENGTH_SHORT).show()
                }
 
            }
@@ -147,10 +142,10 @@ class LoginFragment : Fragment() {
     private fun mailTextChangeListener(){
         binding.mailEditText.addTextChangedListener{
             if (binding.mailEditText.text.toString()==""){
-                binding.textInputLayoutMail.helperText="Enter Mail"
+                binding.textInputLayoutMail.helperText=getString(R.string.enteremail)
             }
             else if(Patterns.EMAIL_ADDRESS.matcher(binding.mailEditText.text.toString()).matches()!=true){
-                binding.textInputLayoutMail.helperText="Invalid Mail"
+                binding.textInputLayoutMail.helperText=getString(R.string.invalid_email)
             }
             else
             {
@@ -162,7 +157,7 @@ class LoginFragment : Fragment() {
     private fun passwordChangeListener(){
         binding.passwordEditText.addTextChangedListener {
             if(binding.passwordEditText.text.toString()==""){
-                binding.textInputLayoutPassword.helperText="Enter Password"
+                binding.textInputLayoutPassword.helperText=getString(R.string.enterpassword)
             }
 
             else

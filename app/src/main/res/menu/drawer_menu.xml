@@ -10,11 +10,18 @@
 
 
     <item android:id="@+id/languages"
-        android:title="Languages">
+        android:title="@string/languages">
 
         <menu>
             <item android:id="@+id/turkish"
-                android:title="Turkish"
+                android:title="@string/turkish"
+                android:icon="@drawable/language">
+
+
+            </item>
+
+            <item android:id="@+id/english"
+                android:title="@string/english"
                 android:icon="@drawable/language">
 
 
@@ -26,18 +33,18 @@
 
 
     <item android:id="@+id/profile"
-        android:title="Profile">
+        android:title="@string/profile">
 
         <menu>
 
             <item android:id="@+id/favorites"
-                android:title="Favorites"
+                android:title="@string/favorites"
                 android:icon="@drawable/star">
 
             </item>
 
             <item android:id="@+id/logout"
-                android:title="Log Out"
+                android:title="@string/logout"
                 android:icon="@drawable/logout">
 
             </item>

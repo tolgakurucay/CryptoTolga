@@ -68,17 +68,6 @@ class CoinFragment : Fragment() {
 
 
 
-        activity?.let {
-
-        }
-
-        language(Constants.curr)
-
-        arguments?.let {
-
-
-
-        }
 
         viewModel.getSingleDataFromAPI(id,currency,layoutInflater)
 
@@ -109,32 +98,7 @@ class CoinFragment : Fragment() {
 
     }
 
-    private fun language(languageCode:String){
-        /*if(languageCode=="TRY")
-        {
-            dataBinding.coinCodeTextView.setText(R.string.codeTR)
-            dataBinding.coinNameTextView.setText(R.string.nameTR)
-            dataBinding.coinMarketCapTextView.setText(R.string.marketCapTR)
-            dataBinding.coinPriceTextView.setText(R.string.priceTR)
-            dataBinding.coinStatusTextView.setText(R.string.statusTR)
-            dataBinding.coinRankTextView.setText(R.string.rankTR)
-            dataBinding.coinDateTextView.setText(R.string.dateTR)
-            dataBinding.buttonFavorites.setText(R.string.addFavoritesTR)
-            dataBinding.buttonProfitAndLoss.setText(R.string.profitAndLossTR)
-        }
-        else
-        {*/
-            dataBinding.coinCodeTextView.setText(R.string.codeEN)
-            dataBinding.coinNameTextView.setText(R.string.nameEN)
-            dataBinding.coinMarketCapTextView.setText(R.string.marketCapEN)
-            dataBinding.coinPriceTextView.setText(R.string.priceEN)
-            dataBinding.coinStatusTextView.setText(R.string.statusEN)
-            dataBinding.coinRankTextView.setText(R.string.rankEN)
-            dataBinding.coinDateTextView.setText(R.string.dateEN)
-            dataBinding.buttonFavorites.setText(R.string.addFavoritesEN)
-            dataBinding.buttonProfitAndLoss.setText(R.string.profitAndLossEN)
-        //}
-    }
+
 
     private fun observeLiveData(){
 

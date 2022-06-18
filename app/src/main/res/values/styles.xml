@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<style name="MyAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-</style>
 
     <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
     </style>
+    <style name="MyAppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:color">#FFFFFF</item>
+
+    </style>
+
+
 
 
     <style name="CustomActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="drawerLayoutStyle">@style/DrawerColor</item>
+
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryDark">@color/black</item>
+
         <item name="drawerArrowStyle">@style/DrawerColor</item>
 
 

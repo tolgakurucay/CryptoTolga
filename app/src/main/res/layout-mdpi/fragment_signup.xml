@@ -25,10 +25,14 @@
         android:id="@+id/layoutName"
         android:layout_width="0dp"
 
+
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        app:helperText="Enter your Name"
         app:helperTextEnabled="true"
+        app:helperText="@string/enteryourname"
+
+
+
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,9 +41,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signupName"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="@string/name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -47,7 +52,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        app:helperText="Enter a Mail"
+        app:helperText="@string/enteremail"
+
+
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         app:helperTextEnabled="true"
@@ -59,7 +66,7 @@
             android:id="@+id/signupMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-Mail" />
+            android:hint="@string/email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -69,7 +76,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        app:helperText="Enter a Password"
+        app:helperText="@string/enterpassword"
         app:helperTextEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Password" />
+            android:hint="@string/password" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -91,7 +98,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        app:helperText="Enter Password Again"
+        app:helperText="@string/enterpasswordagain"
         app:helperTextEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Password Again" />
+            android:hint="@string/enterpasswordagain" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -111,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="REGISTER"
+        android:text="@string/registerlogo"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +130,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="@drawable/round_button"
-        android:text="Register"
+        android:text="@string/register"
         android:textColor="@color/buttonTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

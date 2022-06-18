@@ -43,7 +43,7 @@ class ForgotPasswordFragment : Fragment() {
 
         viewModel=ViewModelProvider(this).get(ForgotPasswordFragmentModel::class.java)
 
-        binding.forgotMailLayout.helperText="Enter a Mail"
+        binding.forgotMailLayout.helperText=getString(R.string.enteremail)
 
         binding.sifremiUnuttumButton.setOnClickListener {
             if(validateField()==true){
@@ -52,7 +52,7 @@ class ForgotPasswordFragment : Fragment() {
             }
             else
             {
-                Toast.makeText(this@ForgotPasswordFragment.requireContext(),"Please Fill Required Field Properly",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ForgotPasswordFragment.requireContext(),getString(R.string.checkInformation),Toast.LENGTH_LONG).show()
             }
         }
 
@@ -66,11 +66,11 @@ class ForgotPasswordFragment : Fragment() {
     private fun watcher(){
         binding.forgotMailText.addTextChangedListener {
             if(binding.forgotMailText.text.toString().isEmpty()){
-                binding.forgotMailLayout.helperText="Enter a Mail"
+                binding.forgotMailLayout.helperText=getString(R.string.enteremail)
             }
             else if(!Patterns.EMAIL_ADDRESS.matcher(binding.forgotMailText.text.toString()).matches())
             {
-                binding.forgotMailLayout.helperText="Invalid Mail"
+                binding.forgotMailLayout.helperText=getString(R.string.invalid_email)
             }
             else
             {
@@ -88,13 +88,13 @@ class ForgotPasswordFragment : Fragment() {
         viewModel.isMailTrue.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if(it){
-                    Toast.makeText(this@ForgotPasswordFragment.requireContext(),"Password Reset Link Sent to Email!",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ForgotPasswordFragment.requireContext(),getString(R.string.password_reset_link),Toast.LENGTH_LONG).show()
                     val action=ForgotPasswordFragmentDirections.actionForgotPasswordFragment2ToLoginFragment2()
                     Navigation.findNavController(this.requireView()).navigate(action)
                 }
                 else
                 {
-                    Toast.makeText(this@ForgotPasswordFragment.requireContext(),"There Is No Account Registered To This Email Address",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ForgotPasswordFragment.requireContext(),getString(R.string.there_isnt_email),Toast.LENGTH_LONG).show()
                 }
             }
         })

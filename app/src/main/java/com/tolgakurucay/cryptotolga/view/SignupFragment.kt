@@ -49,10 +49,11 @@ class SignupFragment : Fragment() {
 
         viewModel=ViewModelProvider(this).get(SignupFragmentModel::class.java)
 
-        binding.layoutMail.helperText="Enter a Mail"
-        binding.layoutName.helperText="Enter a Name"
-        binding.layoutPassword.helperText="Enter a Password"
-        binding.layoutPasswordTry.helperText="Enter Password Again"
+
+        binding.layoutMail.helperText=resources.getString(R.string.enteremail)
+        binding.layoutName.helperText=resources.getString(R.string.name)
+        binding.layoutPassword.helperText=resources.getString(R.string.enterpassword)
+        binding.layoutPasswordTry.helperText=resources.getString(R.string.enterpasswordagain)
 
 
 
@@ -63,7 +64,7 @@ class SignupFragment : Fragment() {
            }
             else
            {
-               Toast.makeText(this.context,"Check The Information You Have Entered",Toast.LENGTH_SHORT).show()
+               Toast.makeText(this.context,resources.getText(R.string.checkInformation),Toast.LENGTH_LONG).show()
 
            }
         }
@@ -84,9 +85,9 @@ class SignupFragment : Fragment() {
 
                     val alertDialog= AlertDialog.Builder(this@SignupFragment.requireContext())
 
-                    alertDialog.setTitle("Register Successful")
-                    alertDialog.setMessage("You can login to the application after clicking the verification link that comes to your e-mail address.")
-                    alertDialog.setPositiveButton("Yes"){a,b->
+                    alertDialog.setTitle(resources.getText(R.string.register_successful))
+                    alertDialog.setMessage(resources.getText(R.string.verification_link))
+                    alertDialog.setPositiveButton(R.string.yes){a,b->
                         val action=SignupFragmentDirections.actionSignupFragment2ToLoginFragment2()
                         Navigation.findNavController(this@SignupFragment.requireView()).navigate(action)
 
@@ -103,7 +104,7 @@ class SignupFragment : Fragment() {
                 else
                 {
                     Log.d("bilgi","Başarısız")
-                    Toast.makeText(this@SignupFragment.requireContext(),"Register Failed\nCould Be An Account Registered With This Email Address",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignupFragment.requireContext(),resources.getText(R.string.register_failed).toString()+"\n"+resources.getText(R.string.could_be_account),Toast.LENGTH_SHORT).show()
                 }
             }
         })
@@ -128,7 +129,7 @@ class SignupFragment : Fragment() {
 
         binding.signupName.addTextChangedListener {
             if(binding.signupName.text.toString().isEmpty()){
-                binding.layoutName.helperText="Enter a Name"
+                binding.layoutName.helperText=getString(R.string.enteryourname)
             }
             else
             {
@@ -138,10 +139,10 @@ class SignupFragment : Fragment() {
         }
         binding.signupMail.addTextChangedListener {
             if (binding.signupMail.text.toString()==""){
-                binding.layoutMail.helperText="Enter a Mail"
+                binding.layoutMail.helperText=getString(R.string.enteremail)
             }
             else if(Patterns.EMAIL_ADDRESS.matcher(binding.signupMail.text.toString()).matches()!=true){
-                binding.layoutMail.helperText="Invalid Mail"
+                binding.layoutMail.helperText=getString(R.string.invalid_email)
             }
             else
             {
@@ -151,10 +152,10 @@ class SignupFragment : Fragment() {
         }
         binding.signUpPassword.addTextChangedListener {
             if(binding.signUpPassword.text.toString()==""){
-                binding.layoutPassword.helperText="Enter a Password"
+                binding.layoutPassword.helperText=getString(R.string.enterpassword)
             }
             else if(binding.signUpPassword.text.toString().length<8){
-                binding.layoutPassword.helperText="Minimum 8 Character"
+                binding.layoutPassword.helperText=getString(R.string.minimum_8_characters)
             }
 
             else
@@ -165,10 +166,10 @@ class SignupFragment : Fragment() {
         }
         binding.signUpPasswordTry.addTextChangedListener {
             if(binding.signUpPasswordTry.text.toString()==""){
-                binding.layoutPasswordTry.helperText="Enter a Password"
+                binding.layoutPasswordTry.helperText=getString(R.string.enterpassword)
             }
             else if(binding.signUpPasswordTry.text.toString().length<8){
-                binding.layoutPasswordTry.helperText="Minimum 8 Character"
+                binding.layoutPasswordTry.helperText=getString(R.string.minimum_8_characters)
             }
 
 
