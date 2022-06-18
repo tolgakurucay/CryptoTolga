@@ -1,7 +1,9 @@
 package com.tolgakurucay.cryptotolga.view
 
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
@@ -11,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.onesignal.OneSignal
 import com.tolgakurucay.cryptotolga.R
 import com.tolgakurucay.cryptotolga.adapter.CoinListAdapter
 import com.tolgakurucay.cryptotolga.databinding.FragmentFeedBinding
@@ -19,6 +22,7 @@ import com.tolgakurucay.cryptotolga.view.activities.EntryActivity
 import com.tolgakurucay.cryptotolga.viewmodel.FeedFragmentModel
 
 import kotlinx.android.synthetic.main.fragment_feed.*
+import org.json.JSONObject
 
 
 class FeedFragment : Fragment() {
@@ -27,6 +31,8 @@ class FeedFragment : Fragment() {
     private var adapter = CoinListAdapter(arrayListOf())
     private lateinit var binding:FragmentFeedBinding
 
+
+
      var currency:String="USD"
 
 
@@ -34,6 +40,7 @@ class FeedFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+
 
     }
 
@@ -57,6 +64,9 @@ class FeedFragment : Fragment() {
             val intent= Intent(activity, EntryActivity::class.java)
             startActivity(intent)
         }
+
+
+
 
 
 
@@ -118,10 +128,6 @@ class FeedFragment : Fragment() {
 
 
         observeLiveData()
-
-
-
-
 
 
 

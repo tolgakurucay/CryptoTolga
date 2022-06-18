@@ -76,17 +76,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         binding.navView.setNavigationItemSelectedListener { menuItem->
 
 

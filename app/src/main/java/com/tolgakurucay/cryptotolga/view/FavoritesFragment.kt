@@ -94,13 +94,9 @@ class FavoritesFragment : Fragment() {
 
 
 
-
-
-
-
-
-
             observeLiveData()
+
+
 
         }
 
@@ -120,11 +116,12 @@ class FavoritesFragment : Fragment() {
                 }
                 else
                 {
-                    for(item in list){
-                        Log.d("bilgi",item.toString())
-                    }
-                    adapter.updateCoinList(list)
-                    binding.textViewEmpty.visibility=View.INVISIBLE
+
+
+                        adapter.updateCoinList(list)
+                        binding.textViewEmpty.visibility=View.INVISIBLE
+
+
 
                 }
 

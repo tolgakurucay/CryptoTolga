@@ -1,6 +1,7 @@
 package com.tolgakurucay.cryptotolga.viewmodel
 
 import android.app.Application
+import android.content.SharedPreferences
 import android.os.CountDownTimer
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
@@ -21,6 +22,7 @@ class FeedFragmentModel(application: Application) : BaseViewModel(application) {
 
     private val coinApiService = CoinAPIService()
     private val disposable = CompositeDisposable()
+
 
 
     val coins = MutableLiveData<List<Coin>>()
@@ -46,6 +48,7 @@ class FeedFragmentModel(application: Application) : BaseViewModel(application) {
                         storeInSQLite(t)
                         println(t.size)
                         progressBar.value=false
+
                     }
 
                     override fun onError(e: Throwable) {
